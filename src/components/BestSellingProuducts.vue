@@ -1,0 +1,195 @@
+<script setup>
+import { ref, watch } from 'vue'
+import { useWishListStore, useCartStore } from '../stores/index.js'
+import alerts from '../alerts/alert.js'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n({ useScope: 'global' })
+
+const componentProps = defineProps({
+	data: Array,
+	offers: Boolean,
+	name: String,
+	totalPage: Number
+})
+
+const alert = alerts()
+const wishListStore = useWishListStore()
+const cartStore = useCartStore()
+await wishListStore.load()
+const products = ref(componentProps.data)
+
+watch(componentProps, () => {
+	products.value = componentProps.data
+})
+
+const addToCart = async (id, qty) => {
+	const res = await cartStore.add(id, qty)
+	if (res) {
+		alert.message('Added successfully')
+	}
+}
+
+const addToWishList = async (id) => {
+	const res = await wishListStore.addAndRemoveElement(id)
+	if (res) {
+		alert.message(' Operation done successfully')
+	}
+}
+</script>
+<style>
+/* custom css */
+.hovered-icon {
+	transition: all 0.5s ease-in-out;
+}
+.hovered-icon:hover {
+	color: #005490 !important;
+}
+</style>
+
+<template>
+	<v-layout class="d-flex flex-wrap w-75 ma-auto">
+		<v-col cols="2" class="pt-5 hidden-sm-and-down">
+			<p class="text-h6">{{ $t('bestSellings') }}</p>
+		</v-col>
+		<v-divider />
+	</v-layout>
+	<v-spacer class="hidden-sm-and-down" />
+
+	<v-layout
+		class="d-flex flex-wrap w-75 ma-auto justify-center align-self-center"
+	>
+		<!-- start slider -->
+		<v-slide-group class="pa-4" show-arrows>
+			<v-slide-group-item v-for="(product, i) in products" :key="i">
+				<v-hover v-for="(product, i) in products" :key="i">
+					<template v-slot:default="{ isHovering, props }">
+						<v-card
+							v-bind="props"
+							class="mx-2 my-12 elevation-3"
+							min-width="275"
+						>
+							<v-card
+								class="elevation-0 justify-center align-self-center"
+								min-width="275"
+							>
+								<router-link :to="`/product/${product.slug}`">
+									<v-img
+										class="pulse"
+										:src="product.thumbnail_image"
+										height="270"
+										cover
+									/>
+								</router-link>
+								<v-row
+									v-if="isHovering"
+									class="ma-0 w-100 hidden-sm-and-down justify-center"
+									style="position: absolute; bottom: 2%"
+								>
+									<v-btn
+										:icon="
+											wishListStore.checkExists(product.id)
+												? 'mdi-heart'
+												: 'mdi-heart-outline'
+										"
+										@click="addToWishList(product.id)"
+										size="small"
+										:class="`${
+											wishListStore.checkExists(product.id) ? 'text-info' : null
+										}  ma-2 pt-1 text-info hovered-icon`"
+										color="white"
+									></v-btn>
+									<v-btn
+										icon="mdi-magnify"
+										:to="`/product/${product.slug}`"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+									<v-btn
+										icon="mdi-cart-outline"
+										@click="
+											addToCart(product.variations[0].id, product.min_qty || 1)
+										"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+								</v-row>
+							</v-card>
+							<v-card-title class="text-center hidden-md-and-up">
+								<v-row class="ma-0 w-100 justify-center">
+									<v-btn
+										:icon="
+											wishListStore.checkExists(product.id)
+												? 'mdi-heart'
+												: 'mdi-heart-outline'
+										"
+										@click="addToWishList(product.id)"
+										size="small"
+										:class="`${
+											wishListStore.checkExists(product.id) ? 'text-info' : null
+										}  ma-2 pt-1`"
+										color="white"
+									></v-btn>
+									<v-btn
+										icon="mdi-magnify"
+										:to="`/product/${product.id}`"
+										size="small"
+										class="ma-2 pt-1"
+										color="white "
+									></v-btn>
+									<v-btn
+										icon="mdi-cart-outline"
+										@click="
+											addToCart(product.variations[0].id, product.min_qty || 1)
+										"
+										size="small"
+										class="ma-2 pt-1"
+										color="white "
+									></v-btn>
+								</v-row>
+							</v-card-title>
+							<v-card-title
+								style="background-color: #005490"
+								class="text-white text-center"
+							>
+								<p class="text-subtitle-1">
+									{{ locale === 'ar' ? '...' : ''
+									}}{{ product.name.substring(0, 30) }}
+									{{ locale === 'en' ? '...' : '' }}
+								</p>
+								<v-card-subtitle class="text-subtitle-2">
+									<span
+										:class="`${
+											product.base_price > product.base_discounted_price &&
+											'text-decoration-line-through'
+										}`"
+										>{{ product.base_price }} {{ $t('currencyLabel') }}</span
+									>
+									<span
+										class="text-info pa-2"
+										v-if="product.base_price > product.base_discounted_price"
+										>{{ product.base_discounted_price }}
+										{{ $t('currencyLabel') }}</span
+									>
+								</v-card-subtitle>
+							</v-card-title>
+						</v-card>
+					</template>
+				</v-hover>
+			</v-slide-group-item>
+		</v-slide-group>
+		<!-- end slider -->
+	</v-layout>
+	<!-- <div v-if="componentProps.totalPage" class="text-center"> -->
+	<!-- <v-pagination
+			v-model="page"
+			:total-visible="6"
+			@update:modelValue="(res) => changePageHandle(res)"
+			:length="componentProps.totalPage"
+			prev-icon="mdi-menu-left"
+			next-icon="mdi-menu-right"
+		></v-pagination> -->
+	<!-- </div> -->
+</template>

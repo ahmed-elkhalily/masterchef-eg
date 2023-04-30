@@ -1,0 +1,203 @@
+{
+	"offerView": {
+		"name": "العروض"
+	},
+	"productView": {
+		"productName": "المنتجات",
+		"allProductName": "جميع المنتجات"
+	},
+	"aboutUsCard": {
+		"title": "من نحن",
+		"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+	},
+	"addressDialog": {
+		"addressLabel": "العنوان",
+		"postCodeLabel": "الرقم البريدي",
+		"countryLabel": "الدولة",
+		"stateLabel": "المحافظة",
+		"cityLabel": "المدينة",
+		"phoneNumberLabel": "رقم الهاتف",
+		"submitBtn": "حفظ"
+	},
+	"addressList": {
+		"countryLabel": "الدولة",
+		"stateLabel": "المحافظة",
+		"cityLabel": "المدينة",
+		"postCodeLabel": "الرقم البريدي",
+		"phoneNumberLabel": "رقم الهاتف",
+		"chooseBtn": "اختر",
+		"addBtn": "اضافة عنوان"
+	},
+	"appCart": {
+		"title": "منتجات",
+		"qtyLabel": "الكمية",
+		"priceLabel": "السعر",
+		"couponTitle": "هل لديك كود خصم ؟",
+		"couponCode": "كود القسيمة",
+		"couponSubmitBtn": "قبول",
+		"checkOutBtn": "دفع"
+	},
+	"categoryCard": {
+		"detailsBtn": "المزيد"
+	},
+	"checkOut": {
+		"addressTitle": "العنوان",
+		"deliveryMethodTitle": "طريقة التوصيل",
+		"orderDetailsTitle": "بيانات الطلب",
+		"table": {
+			"productLabel": "المنتج",
+			"qtyLabel": "الكمية",
+			"itemPriceLabel": "سعلر المنتج",
+			"totalPriceLabel": "المجموع"
+		},
+		"paymentDetailsTitle": "الفاتورة",
+		"subTotalLabel": "المجموع الفرعي",
+		"taxLabel": "المجموع الفرعي",
+		"shippingChargeLabel": "رسوم الشحن",
+		"applyDiscountBtn": "قبول",
+		"applyDiscountTitle": "خصم",
+		"discountFieldLabel": "كود القسيمة",
+		"totalLabel": "المجموع",
+		"paymentMethod": {
+			"title": "طريقة الدفع",
+			"onlinePaymentLabel": "الدفع اونلاين",
+			"payOnDeliveryLabel": "الدفع عند الاستلام"
+		},
+		"checkOutBtn": "دفع"
+	},
+	"filterData": {
+		"priceLabel": "السعر",
+		"fromLabel": "من",
+		"toLabel": "الى",
+		"categoryTitle": "الاقسام",
+		"submitBtn": "حفظ"
+	},
+	"howWeWork": {
+		"firstCard": {
+			"title": "عنوان البطاقة",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		},
+		"secondCard": {
+			"title": "عنوان البطاقة",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		},
+		"thirdCard": {
+			"title": "عنوان البطاقة",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		}
+	},
+	"authPage": {
+		"loginTitle": "تسجيل الدخول",
+		"signupTitle": "حساب جديد",
+		"verifyTitle": "تفعيل الحساب",
+		"resetTitle": "استرجاع كلمة المرور",
+		"emailLabel": "البريد الالكتروني",
+		"emailPlaceholder": "your{'@'}email.com",
+		"nameLabel": "الاسم",
+		"namePlaceholder": "اسم المستخدم",
+		"phoneLabel": "رقم الهاتف",
+		"phonePlaceholder": "00000000000",
+		"codeLabel": "الكود",
+		"codePlaceholder": "0000",
+		"passwordLabel": "كلمة المرور",
+		"passwordPlaceholder": "************",
+		"submitBtn": "تنفيذ",
+		"forgotPasswordTitle": "هل نسيت كلمة المرور؟",
+		"resetPasswordBtn": "استرجاع كلمة المرور",
+		"resendCodeTitle": "لم يصلك الكود؟",
+		"resendCodeBtn": "اعادة ارسال الكود",
+		"createAccountTitle": "ليس لديك حساب؟",
+		"createAccountBtn": "انشاء حساب جديد"
+	},
+	"mainPage": {
+		"title": "عنوان البطاقة",
+		"body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima, at placeat totam, magni doloremque veniam neque porro libero rerum unde voluptatem!"
+	},
+	"navbar": {
+		"dashboardBtn": "لوحة التحكم",
+		"productBtn": "المنتجات",
+		"categoryBtn": "الاقسام",
+		"blogBtn": "الاخبار",
+		"offersBtn": "العروض",
+		"wishlistBtn": "المفضلة"
+	},
+	"offerList": {
+		"exploreBtn": "استكشف"
+	},
+	"orderDetails": {
+		"orderNumberLabel": "رقم الطلب",
+		"orderDetailsLabel": {
+			"title": "تفاصيل الطلب",
+			"orderNameLabel": " الاسم",
+			"orederEmailLabel": "الايميل",
+			"orderTotalAmountLabel": "المبلغ الاجمالي",
+			"orderPaymentMethodLabel": "طريقة الدفع",
+			"orderDeliveryMethodeLabel": "طريقة التوصيل",
+			"orderAdressLabel": "العنوان"
+		},
+		"orderStatus": {
+			"title": "حالة الطلب",
+			"timeline1": "تم الطلب",
+			"timeline2": "تم التاكيد",
+			"timeline3": "جاري التنفيذ",
+			"timeline4": "جاري الشحن",
+			"timeline5": "تم التسليم"
+		},
+		"table": {
+			"productLabel": "المنتج",
+			"qtyLabel": "الكمية",
+			"totalPriceLabel": "السعر الاجمالي"
+		},
+		"subTotalLabel": "المجموع الفرعي",
+		"taxLabel": "الضريبة",
+		"shippingFeeLabel": "رسوم الشحن",
+		"voucherDiscountLabel": "الخصم",
+		"totalLabel": "المجموع"
+	},
+	"orderList": {
+		"orderNumberLabel": "رقم الطلب",
+		"qtyLabel": "الكمية",
+		"totalPriceLabel": "السعر الاجمالي",
+		"detailsBtn": "تفاصيل"
+	},
+	"productList": {
+		"searchLabel": "البحث"
+	},
+	"productDetails": {
+		"stockLabel": "المتوفر",
+		"outOfStockTitle": "غير متوفر",
+		"addToCartBtn": "اضافة الى السلة",
+		"buyItNowBtn": "اشتري الان",
+		"evaluationTitle": "التقييم و المراجعات",
+		"ratingTitle": "التقييم",
+		"reviewTitle": "التعليقات",
+		"noReviewTitle": "لا يوجد تعليقات",
+		"addCommentTitle": "اترك تعليقا",
+		"commentLabel": "الرسالة",
+		"submitBtn": "حفظ"
+	},
+	"userBoard": {
+		"tabs": {
+			"dashboardName": "لوحة التحكم",
+			"orderName": "الطلبات",
+			"addressName": "العناوين",
+			"accountDetailsName": "حسابي",
+			"wishlistName": "المفضلة",
+			"logoutName": "تسجيل الخروج"
+		},
+		"title": "المستخدم",
+		"nameLabel": "الاسم",
+		"phoneLabel": "رقم الهاتف",
+		"emailLabel": "البريد الالكتروني",
+		"passwordLabel": "كلمة المرور",
+		"passwordPlaceholder": "************"
+	},
+	"appFooter": {
+		"categoryTitle": "الاقسام",
+		"myAccountTitle": "حسابي",
+		"policyTitle": "سياسة الموقع",
+		"contactUsTitle": "تواصل معنا"
+	},
+	"currencyLabel": "EGP",
+	"bestSellings": "الأفضل مبيعًا"
+}

@@ -1,0 +1,203 @@
+{
+	"offerView": {
+		"name": "offer"
+	},
+	"productView": {
+		"productName": "Products",
+		"allProductName": "All Products"
+	},
+	"aboutUsCard": {
+		"title": "About Us",
+		"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+	},
+	"addressDialog": {
+		"addressLabel": "address",
+		"postCodeLabel": "PostCode",
+		"countryLabel": "Country",
+		"stateLabel": "State",
+		"cityLabel": "City",
+		"phoneNumberLabel": "Phone Number",
+		"submitBtn": "Submit"
+	},
+	"addressList": {
+		"countryLabel": "Country",
+		"stateLabel": "State",
+		"cityLabel": "City",
+		"postCodeLabel": "PostCode",
+		"phoneNumberLabel": "Phone Number",
+		"chooseBtn": "Choose",
+		"addBtn": "Add address"
+	},
+	"appCart": {
+		"title": "Products",
+		"qtyLabel": "Qty",
+		"priceLabel": "Price",
+		"couponTitle": "Have a Coupon?",
+		"couponCode": "Coupon code",
+		"couponSubmitBtn": "Submit",
+		"checkOutBtn": "Check Out"
+	},
+	"categoryCard": {
+		"detailsBtn": "Button"
+	},
+	"checkOut": {
+		"addressTitle": "Address",
+		"deliveryMethodTitle": "Delivery Method",
+		"orderDetailsTitle": "Order Details",
+		"table": {
+			"productLabel": "Product",
+			"qtyLabel": "Qty",
+			"itemPriceLabel": "Item price",
+			"totalPriceLabel": "Total Price"
+		},
+		"paymentDetailsTitle": "Payment Details",
+		"subTotalLabel": "Sub Total",
+		"taxLabel": "Tax",
+		"shippingChargeLabel": "Shipping Charge",
+		"applyDiscountBtn": "Apply",
+		"applyDiscountTitle": "discount",
+		"discountFieldLabel": "Coupon code",
+		"totalLabel": "Total",
+		"paymentMethod": {
+			"title": "Payment Method",
+			"onlinePaymentLabel": "Online Payment",
+			"payOnDeliveryLabel": "Pay On Delivery"
+		},
+		"checkOutBtn": "Check Out"
+	},
+	"filterData": {
+		"priceLabel": "Price",
+		"fromLabel": "from",
+		"toLabel": "to",
+		"categoryTitle": "Filter by category",
+		"submitBtn": "Apply"
+	},
+	"howWeWork": {
+		"firstCard": {
+			"title": "Card Title",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		},
+		"secondCard": {
+			"title": "Card Title",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		},
+		"thirdCard": {
+			"title": "Card Title",
+			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		}
+	},
+	"authPage": {
+		"loginTitle": "Login",
+		"signupTitle": "Registration",
+		"verifyTitle": "Verify Account",
+		"resetTitle": "Reset Password",
+		"emailLabel": "Emal",
+		"emailPlaceholder": "your{'@'}email.com",
+		"nameLabel": "Name",
+		"namePlaceholder": "User Name",
+		"phoneLabel": "Phone Number",
+		"phonePlaceholder": "00000000000",
+		"codeLabel": "Code",
+		"codePlaceholder": "0000",
+		"passwordLabel": "Password",
+		"passwordPlaceholder": "************",
+		"submitBtn": "submit",
+		"forgotPasswordTitle": " Did you forgot Your Password?",
+		"resetPasswordBtn": "Reset Password",
+		"resendCodeTitle": "Didn't get the code?",
+		"resendCodeBtn": "resend code",
+		"createAccountTitle": "Don't have Account ?",
+		"createAccountBtn": "Create New Account"
+	},
+	"mainPage": {
+		"title": "Card Title",
+		"body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima, at placeat totam, magni doloremque veniam neque porro libero rerum unde voluptatem!"
+	},
+	"navbar": {
+		"dashboardBtn": "Dashboard",
+		"productBtn": "Products",
+		"categoryBtn": "Categories",
+		"blogBtn": "Blogs",
+		"offersBtn": "Offers",
+		"wishlistBtn": "Wishlist"
+	},
+	"offerList": {
+		"exploreBtn": "Explore"
+	},
+	"orderDetails": {
+		"orderNumberLabel": "Order Number",
+		"orderDetailsLabel": {
+			"title": "Order Details",
+			"orderNameLabel": " Name",
+			"orederEmailLabel": "Email",
+			"orderTotalAmountLabel": "Total Amount",
+			"orderPaymentMethodLabel": "Payment Method",
+			"orderDeliveryMethodeLabel": "Delivery Method",
+			"orderAdressLabel": "Address"
+		},
+		"orderStatus": {
+			"title": "Order Status",
+			"timeline1": "Order Placed",
+			"timeline2": "Confirmed",
+			"timeline3": "Processed",
+			"timeline4": "Shipped",
+			"timeline5": "Delivered"
+		},
+		"table": {
+			"productLabel": "Product",
+			"qtyLabel": "Number Of Items",
+			"totalPriceLabel": "Total Price"
+		},
+		"subTotalLabel": "Sub Total",
+		"taxLabel": "Tax",
+		"shippingFeeLabel": "Shipping fee",
+		"voucherDiscountLabel": "Voucher Discount",
+		"totalLabel": "Total"
+	},
+	"orderList": {
+		"orderNumberLabel": "Order Number",
+		"qtyLabel": "Qty",
+		"totalPriceLabel": "Total Price",
+		"detailsBtn": "Details"
+	},
+	"productList": {
+		"searchLabel": "Search"
+	},
+	"productDetails": {
+		"stockLabel": "SKU",
+		"outOfStockTitle": "Out Of Stock",
+		"addToCartBtn": "Add To Cart",
+		"buyItNowBtn": "Buy It Now",
+		"evaluationTitle": "Evaluations and Reviews",
+		"ratingTitle": "Rating overview",
+		"reviewTitle": "Reviews",
+		"noReviewTitle": "No Reviews Yet",
+		"addCommentTitle": "LEAVE A COMMENT",
+		"commentLabel": "Message",
+		"submitBtn": "Submit FeedBack"
+	},
+	"userBoard": {
+		"tabs": {
+			"dashboardName": "Dashboard",
+			"orderName": "Orders",
+			"addressName": "Adresses",
+			"accountDetailsName": "Account Details",
+			"wishlistName": "Wishlist",
+			"logoutName": "Logout"
+		},
+		"title": "User",
+		"nameLabel": "Name",
+		"phoneLabel": "Phone Number",
+		"emailLabel": "Email",
+		"passwordLabel": "Password",
+		"passwordPlaceholder": "************"
+	},
+	"appFooter": {
+		"categoryTitle": "Categories",
+		"myAccountTitle": "My Account",
+		"policyTitle": "Website Policy",
+		"contactUsTitle": "Contact Us"
+	},
+	"currencyLabel": "EGP",
+	"bestSellings": "Bestsellings"
+}
