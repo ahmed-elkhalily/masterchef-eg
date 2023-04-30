@@ -1,6 +1,6 @@
 <script setup>
-import {watchEffect, ref} from 'vue'
-import {useRoute} from 'vue-router'
+import { watchEffect, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 import CategoryView from './CategoryView.vue'
 import HowWeWork from '../components/HowWeWork.vue'
@@ -8,10 +8,10 @@ import Main from '../components/MainPage.vue'
 import AboutUsCard from '../components/AboutUsCard.vue'
 // import ProductList from "../components/ProductList.vue";
 import BestSellingProuducts from '../components/BestSellingProuducts.vue'
-import {useProductStore} from '../stores/index.js'
-import {useI18n} from 'vue-i18n'
+import { useProductStore } from '../stores/index.js'
+import { useI18n } from 'vue-i18n'
 
-const {tm} = useI18n()
+const { tm } = useI18n()
 const route = useRoute()
 const productStore = useProductStore()
 const data = ref()
