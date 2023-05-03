@@ -14,18 +14,16 @@ const { locale } = useI18n({ useScope: 'global' })
 <template>
 	<v-footer
 		style="background-color: #005490"
-		class="text-white text-center justify-center mt-12 py-12 px-5 d-flex flex-wrap"
+		class="text-white text-center mt-12 py-12"
 	>
-		<v-col cols="8">
-			<v-img class="pulse" :src="data?.footer_logo" height="80" width="200" />
-			<v-spacer />
-		</v-col>
-		<v-col cols="8">
-			<v-divider />
-		</v-col>
-		<v-col cols="8">
-			<v-row>
-				<v-col class="text-start">
+		<v-container>
+			<div class="mb-3">
+				<v-img class="pulse" :src="data?.footer_logo" height="80" width="200" />
+				<v-spacer />
+				<v-divider />
+			</div>
+			<v-row no-gutter>
+				<v-col cols="6" xs="6" md="3" class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
 							{{ $t('appFooter.categoryTitle') }}
@@ -40,7 +38,8 @@ const { locale } = useI18n({ useScope: 'global' })
 						<p class="py-2">{{ item.name }}</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-start">
+
+				<v-col cols="6" xs="6" md="3" class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
 							{{ $t('appFooter.myAccountTitle') }}
@@ -71,7 +70,7 @@ const { locale } = useI18n({ useScope: 'global' })
 						<p class="py-2">{{ $t('userBoard.tabs.wishlistName') }}</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-start">
+				<v-col cols="6" xs="6" md="3" class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
 							{{ $t('appFooter.policyTitle') }}
@@ -92,7 +91,7 @@ const { locale } = useI18n({ useScope: 'global' })
 						</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-start">
+				<v-col cols="12" sm="6" md="3" class="text-start">
 					<v-card-text style="color: #42c0f9">
 						<p class="text-subtitle-1 font-weight-bold">
 							{{ $t('appFooter.contactUsTitle') }}
@@ -112,35 +111,34 @@ const { locale } = useI18n({ useScope: 'global' })
 					</v-card-text>
 				</v-col>
 			</v-row>
-		</v-col>
-		<v-col cols="8">
-			<v-btn
-				class="ma-2"
-				variant="text"
-				icon="mdi-facebook"
-				color="info"
-				style="background-color: white"
-				density="comfortable"
-			></v-btn>
-			<v-btn
-				density="comfortable"
-				class="ma-2"
-				variant="text"
-				icon="mdi-instagram"
-				style="background-color: white"
-				color="red"
-			></v-btn>
-			<v-btn
-				density="comfortable"
-				class="ma-2"
-				variant="text"
-				icon="mdi-twitter"
-				style="background-color: white"
-				color="info"
-			></v-btn>
-		</v-col>
-		<v-col cols="8">
+			<div class="my-4">
+				<v-btn
+					class="ma-2"
+					variant="text"
+					icon="mdi-facebook"
+					color="info"
+					style="background-color: white"
+					density="comfortable"
+				></v-btn>
+				<v-btn
+					density="comfortable"
+					class="ma-2"
+					variant="text"
+					icon="mdi-instagram"
+					style="background-color: white"
+					color="red"
+				></v-btn>
+				<!-- <v-btn
+					density="comfortable"
+					class="ma-2"
+					variant="text"
+					icon="mdi-twitter"
+					style="background-color: white"
+					color="info"
+				></v-btn> -->
+			</div>
+
 			<strong>@{{ data.copyright_text }}</strong>
-		</v-col>
+		</v-container>
 	</v-footer>
 </template>

@@ -3,10 +3,23 @@
 
 .main-imgs-contianer {
 	position: relative;
+	min-height: 500px;
+	overflow: hidden;
 }
+.main-imgs-contianer .main-title {
+	position: relative;
+}
+
+.main-imgs-contianer p {
+	position: absolute;
+	top: 55%;
+	transform: translateY(-50%);
+}
+
 .main-imgs-contianer .main-img {
 	margin-top: 120px;
 }
+
 .main-imgs-contianer .sec-img {
 	position: absolute;
 	top: 2%;
@@ -21,13 +34,6 @@
 	align-items: center;
 	margin-top: 22%;
 }
-
-/* @media (max-width: 992px) {
-	.main-imgs-contianer .main-title {
-		/* margin-top: 20%; */
-/* display: none; */
-/* } */
-/* } */
 
 @media (max-width: 992px) {
 	.main-imgs-contianer .main-title {
@@ -57,12 +63,7 @@
 			</Transition>
 			<v-col md="6" cols="12" class="d-flex main-title">
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ratione
-					expedita veritatis quo aliquid nisi, obcaecati error numquam, id quae
-					quis molestias at tempore sint eum perspiciatis rerum doloribus, odio
-					aperiam! Quaerat mollitia magni quidem architecto itaque natus
-					accusantium nam nesciunt, quae sit pariatur assumenda harum
-					exercitationem culpa ea eos!
+					{{ $t('main') }}
 				</p>
 			</v-col>
 
@@ -106,11 +107,12 @@
 
 .horizontalPicMobile-enter-from {
 	opacity: 0;
-	transform: translateY(-50%);
+	transform: translateX(50%);
 }
 
 .horizontalPicMobile-enter-to {
 	opacity: 1;
+	transform: translateX(-50%);
 }
 
 .horizontalPicMobile-enter-active {

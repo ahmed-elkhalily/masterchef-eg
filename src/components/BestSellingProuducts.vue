@@ -2,14 +2,11 @@
 import { ref, watch } from 'vue'
 import { useWishListStore, useCartStore } from '../stores/index.js'
 import alerts from '../alerts/alert.js'
-import { useI18n } from 'vue-i18n'
 // working with swipper
 import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-
-const { locale } = useI18n({ useScope: 'global' })
 
 const componentProps = defineProps({
 	data: Array,
@@ -47,8 +44,6 @@ const modules = [Pagination]
 </script>
 
 <style lang="scss" scoped>
-/* custom css */
-
 .hovered-icon {
 	transition: all 0.5s ease-in-out;
 }
@@ -73,8 +68,6 @@ const modules = [Pagination]
 		min-width: 1rem !important;
 	}
 }
-
-/* slider */
 </style>
 
 <template>
@@ -117,18 +110,49 @@ const modules = [Pagination]
 						>
 							<v-card
 								class="elevation-0 justify-center align-self-center bestselling-slider-1"
+								min-height="220"
+								style="background-color: #cacaca"
 							>
 								<router-link :to="`/product/${product.slug}`">
-									<v-img
-										class="pulse"
-										:src="product.thumbnail_image"
-										height="270"
-										cover
-									/>
+									<v-img class="pulse" :src="product.thumbnail_image" />
 								</router-link>
 								<v-row
 									v-if="isHovering"
-									class="ma-0 w-100 hidden-sm-and-down justify-center"
+									class="ma-0 w-100 justify-center hidden-md-and-down"
+									style="position: absolute; bottom: 2%"
+								>
+									<v-btn
+										:icon="
+											wishListStore.checkExists(product.id)
+												? 'mdi-heart'
+												: 'mdi-heart-outline'
+										"
+										@click="addToWishList(product.id)"
+										size="small"
+										:class="`${
+											wishListStore.checkExists(product.id) ? 'text-info' : null
+										}  ma-2 pt-1 text-info hovered-icon`"
+										color="white"
+									></v-btn>
+									<v-btn
+										icon="mdi-magnify"
+										:to="`/product/${product.slug}`"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+									<v-btn
+										icon="mdi-cart-outline"
+										@click="
+											addToCart(product.variations[0].id, product.min_qty || 1)
+										"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+								</v-row>
+								<v-row
+									class="ma-0 w-100 justify-center hidden-md-and-up"
 									style="position: absolute; bottom: 2%"
 								>
 									<v-btn
@@ -162,7 +186,7 @@ const modules = [Pagination]
 									></v-btn>
 								</v-row>
 							</v-card>
-							<v-card-title class="text-center hidden-md-and-up">
+							<!-- <v-card-title class="text-center hidden-md-and-up">
 								<v-row class="ma-0 w-100 justify-center">
 									<v-btn
 										:icon="
@@ -194,7 +218,7 @@ const modules = [Pagination]
 										color="white "
 									></v-btn>
 								</v-row>
-							</v-card-title>
+							</v-card-title> -->
 							<v-card-title
 								style="background-color: #005490"
 								class="text-white text-center"
@@ -202,6 +226,7 @@ const modules = [Pagination]
 								<p class="text-subtitle-1">
 									<!-- todo: we need to add tooltip -->
 									{{ product.name.substring(0, 30) }}
+									{{ product.name.length > 30 ? '...' : '' }}
 								</p>
 								<v-card-subtitle class="text-subtitle-2">
 									<span
@@ -226,135 +251,3 @@ const modules = [Pagination]
 		</swiper>
 	</v-container>
 </template>
-
-<!-- <template>
-	<v-container>
-		<v-layout class="d-flex flex-wrap ma-auto">
-			<v-col class="pt-5">
-				<p class="text-h6">{{ $t('bestSellings') }}</p>
-			</v-col>
-			<v-divider />
-		</v-layout>
-		<v-spacer class="hidden-sm-and-down" />
-
-		<v-slide-group class="py-4" show-arrows>
-			<v-slide-group-item v-for="(product, i) in products" :key="i">
-				<v-hover v-for="(product, i) in products" :key="i">
-					<template v-slot:default="{ isHovering, props }">
-						<v-card
-							v-bind="props"
-							class="mx-2 my-12 elevation-3 bestselling-slider"
-						>
-							<v-card
-								class="elevation-0 justify-center align-self-center bestselling-slider-1"
-							>
-								<router-link :to="`/product/${product.slug}`">
-									<v-img
-										class="pulse"
-										:src="product.thumbnail_image"
-										height="270"
-										cover
-									/>
-								</router-link>
-								<v-row
-									v-if="isHovering"
-									class="ma-0 w-100 hidden-sm-and-down justify-center"
-									style="position: absolute; bottom: 2%"
-								>
-									<v-btn
-										:icon="
-											wishListStore.checkExists(product.id)
-												? 'mdi-heart'
-												: 'mdi-heart-outline'
-										"
-										@click="addToWishList(product.id)"
-										size="small"
-										:class="`${
-											wishListStore.checkExists(product.id) ? 'text-info' : null
-										}  ma-2 pt-1 text-info hovered-icon`"
-										color="white"
-									></v-btn>
-									<v-btn
-										icon="mdi-magnify"
-										:to="`/product/${product.slug}`"
-										size="small"
-										class="ma-2 pt-1 text-info hovered-icon"
-										color="white "
-									></v-btn>
-									<v-btn
-										icon="mdi-cart-outline"
-										@click="
-											addToCart(product.variations[0].id, product.min_qty || 1)
-										"
-										size="small"
-										class="ma-2 pt-1 text-info hovered-icon"
-										color="white "
-									></v-btn>
-								</v-row>
-							</v-card>
-							<v-card-title class="text-center hidden-md-and-up">
-								<v-row class="ma-0 w-100 justify-center">
-									<v-btn
-										:icon="
-											wishListStore.checkExists(product.id)
-												? 'mdi-heart'
-												: 'mdi-heart-outline'
-										"
-										@click="addToWishList(product.id)"
-										size="small"
-										:class="`${
-											wishListStore.checkExists(product.id) ? 'text-info' : null
-										}  ma-2 pt-1`"
-										color="white"
-									></v-btn>
-									<v-btn
-										icon="mdi-magnify"
-										:to="`/product/${product.id}`"
-										size="small"
-										class="ma-2 pt-1"
-										color="white "
-									></v-btn>
-									<v-btn
-										icon="mdi-cart-outline"
-										@click="
-											addToCart(product.variations[0].id, product.min_qty || 1)
-										"
-										size="small"
-										class="ma-2 pt-1"
-										color="white "
-									></v-btn>
-								</v-row>
-							</v-card-title>
-							<v-card-title
-								style="background-color: #005490"
-								class="text-white text-center"
-							>
-								<p class="text-subtitle-1">
-									{{ locale === 'ar' ? '...' : ''
-									}}{{ product.name.substring(0, 30) }}
-									{{ locale === 'en' ? '...' : '' }}
-								</p>
-								<v-card-subtitle class="text-subtitle-2">
-									<span
-										:class="`${
-											product.base_price > product.base_discounted_price &&
-											'text-decoration-line-through'
-										}`"
-										>{{ product.base_price }} {{ $t('currencyLabel') }}</span
-									>
-									<span
-										class="text-info pa-2"
-										v-if="product.base_price > product.base_discounted_price"
-										>{{ product.base_discounted_price }}
-										{{ $t('currencyLabel') }}</span
-									>
-								</v-card-subtitle>
-							</v-card-title>
-						</v-card>
-					</template>
-				</v-hover>
-			</v-slide-group-item>
-		</v-slide-group>
-
-	</v-container>
-</template> -->

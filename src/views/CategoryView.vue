@@ -2,7 +2,7 @@
 import { watchEffect, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCategoryStore, useProductStore } from '../stores/index.js'
-// import ProductList from '../components/ProductList.vue'
+import ProductList from '../components/ProductList.vue'
 import CategoryList from '../components/CategoryCard.vue'
 import { useI18n } from 'vue-i18n'
 import AppLoading from '../components/AppLoading.vue'

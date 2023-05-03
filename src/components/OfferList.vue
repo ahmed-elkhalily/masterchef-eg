@@ -4,6 +4,17 @@ const props = defineProps({
 })
 </script>
 
+<style lang="scss">
+.offer-banner {
+	// height: 300px;
+}
+@media (max-width: 768px) {
+	.offer-banner {
+		height: auto;
+	}
+}
+</style>
+
 <template>
 	<v-container>
 		<v-card
@@ -12,7 +23,7 @@ const props = defineProps({
 			class="mx-2 my-3 w-100 elevation-0"
 		>
 			<router-link :to="`/offer/${offer.slug}`">
-				<v-img class="pulse" :src="offer.banner" height="300" />
+				<v-img class="pulse offer-banner" :src="offer.banner" />
 			</router-link>
 			<v-card-title class="text-start ml-0 pl-0">
 				<p>{{ offer.title }}</p>

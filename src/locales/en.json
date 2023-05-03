@@ -1,4 +1,5 @@
 {
+	"main": "At MasterChef, we believe that cooking should be accessible to everyone, regardless of their skill level or experience.each product is designed to simplify the cooking process and save you time and effort. We understand that our customers lead busy lives, and that's why we create appliances that are both efficient and easy to use. With MasterChef, you can enjoy a hassle-free cooking experience and focus on what really matters: creating delicious meals to share with your loved ones.",
 	"offerView": {
 		"name": "offer"
 	},
@@ -8,7 +9,9 @@
 	},
 	"aboutUsCard": {
 		"title": "About Us",
-		"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		"about1": "Welcome to MasterChef, your destination for unique and simple kitchen appliances that make your life easier. We are a brand dedicated to helping home cooks and professional chefs alike achieve their culinary goals with ease and confidence.",
+		"about2": "Our mission is to provide you with kitchen appliances that are not only easy to use and efficient, but also add a touch of style and sophistication to your kitchen. We believe that cooking should be a joy, not a chore, and that the right tools can make all the difference.",
+		"about3": "Thank you for choosing MasterChef as your go-to brand for unique and simple kitchen appliances. We look forward to helping you create delicious meals and unforgettable culinary experiences for years to come."
 	},
 	"addressDialog": {
 		"addressLabel": "address",
@@ -38,7 +41,7 @@
 		"checkOutBtn": "Check Out"
 	},
 	"categoryCard": {
-		"detailsBtn": "Button"
+		"detailsBtn": "more"
 	},
 	"checkOut": {
 		"addressTitle": "Address",
@@ -74,16 +77,16 @@
 	},
 	"howWeWork": {
 		"firstCard": {
-			"title": "Card Title",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "Secure Payment",
+			"body": "We use industry-standard encryption technology to protect your payment information, ensuring that your personal and financial details are always safe and secure. Our payment gateway is also verified by reputable third-party services to ensure the highest level of security. You can shop with confidence on our website, knowing that your information is protected every step of the way."
 		},
 		"secondCard": {
-			"title": "Card Title",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "Delivery",
+			"body": "We are committed to delivering an exceptional experience from start to finish, including the delivery of your purchase. We partner with reputable shipping carriers to ensure that your order arrives quickly and in perfect condition. Our team carefully packs each item to ensure that it is protected during transit, and we provide tracking information so that you can stay up-to-date on your delivery's progress."
 		},
 		"thirdCard": {
-			"title": "Card Title",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "Customer Service",
+			"body": "At MasterChef, we value our customers and strive to provide exceptional service. Our knowledgeable and friendly customer service team is available to answer any questions or concerns you may have before, during, and after your purchase. You can contact us at any time, and we will be happy to assist you with anything you need."
 		}
 	},
 	"authPage": {

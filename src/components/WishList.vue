@@ -1,29 +1,29 @@
 <script setup>
-	import { useWishListStore, useCartStore } from "../stores/index.js";
-	import alerts from "../alerts/alert.js";
-	import { useI18n } from "vue-i18n";
+import { useWishListStore, useCartStore } from '../stores/index.js'
+import alerts from '../alerts/alert.js'
+import { useI18n } from 'vue-i18n'
 
-	const { locale } = useI18n({ useScope: "global" });
+const { locale } = useI18n({ useScope: 'global' })
 
-	const wishlistStore = useWishListStore();
-	const cartStore = useCartStore();
-	const alert = alerts();
+const wishlistStore = useWishListStore()
+const cartStore = useCartStore()
+const alert = alerts()
 
-	await wishlistStore.load();
+await wishlistStore.load()
 
-	const addToCart = async (id, qty) => {
-		const res = await cartStore.add(id, qty);
-		if (res) {
-			alert.message("Added successfully");
-		}
-	};
+const addToCart = async (id, qty) => {
+	const res = await cartStore.add(id, qty)
+	if (res) {
+		alert.message('Added successfully')
+	}
+}
 
-	const addToWishList = async (id) => {
-		const res = await wishlistStore.addAndRemoveElement(id);
-		if (res) {
-			alert.message(" Operation done successfully");
-		}
-	};
+const addToWishList = async (id) => {
+	const res = await wishlistStore.addAndRemoveElement(id)
+	if (res) {
+		alert.message(' Operation done successfully')
+	}
+}
 </script>
 
 <template>
@@ -97,8 +97,8 @@
 						class="text-white text-center"
 					>
 						<p>
-							{{ locale === "ar" ? "..." : "" }}{{ item.name.substring(0, 30) }}
-							{{ locale === "en" ? "..." : "" }}
+							{{ item.name.substring(0, 30) }}
+							{{ item.name.length > 30 ? '...' : '' }}
 						</p>
 						<v-card-subtitle class="text-subtitle-2">
 							<span
@@ -107,13 +107,13 @@
 									'text-decoration-line-through'
 								}`"
 							>
-								{{ item.base_price }} {{ $t("currencyLabel") }}
+								{{ item.base_price }} {{ $t('currencyLabel') }}
 							</span>
 							<span
 								v-if="item.base_price > item.base_discounted_price"
 								class="text-info pa-2"
 							>
-								{{ item.base_discounted_price }} {{ $t("currencyLabel") }}
+								{{ item.base_discounted_price }} {{ $t('currencyLabel') }}
 							</span>
 						</v-card-subtitle>
 					</v-card-title>

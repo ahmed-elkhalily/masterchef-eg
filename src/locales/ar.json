@@ -1,4 +1,5 @@
 {
+	"main": "نحن في ماستر شاف نؤمن بأن الطبخ يجب أن يكون متاحًا للجميع، بغض النظر عن مستواهم أو خبرتهم. تم تصميم كل منتج لتبسيط عملية الطهي وتوفير الوقت والجهد. نحن ندرك أن عملائنا يقودون حياة مشغولة، ولذلك نقوم بإنشاء أجهزة كفوءة وسهلة الاستخدام. مع ماستر شاف، يمكنك الاستمتاع بتجربة طهي خالية من المتاعب والتركيز على ما يهم حقًا: إعداد وجبات شهية لمشاركتها مع أحبائك.",
 	"offerView": {
 		"name": "العروض"
 	},
@@ -8,7 +9,9 @@
 	},
 	"aboutUsCard": {
 		"title": "من نحن",
-		"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+		"about1": "مرحبًا بك في ماستر شاف، وجهتك للأجهزة المطبخية الفريدة والبسيطة التي تجعل حياتك أسهل. نحن علامة تجارية مكرسة لمساعدة الطهاة المنزليين والمحترفين على تحقيق أهدافهم الطهوية بسهولة وثقة.",
+		"about2": "مهمتنا هي توفير الأجهزة المطبخية التي لا تسهل الاستخدام والكفاءة فحسب، بل أيضًا تضيف لمسةً من الأناقة والتطور إلى مطبخك. نحن نؤمن بأن الطبخ يجب أن يكون متعة، ليس عبئًا، وأن الأدوات المناسبة يمكن أن تجعل كل الفرق.",
+		"about3": "شكرًا لاختيارك ماستر شاف كعلامة تجارية للأجهزة المطبخية الفريدة والبسيطة. نتطلع إلى مساعدتك في إعداد وجبات شهية وتجارب طهي لا تُنسى على مدار السنوات القادمة."
 	},
 	"addressDialog": {
 		"addressLabel": "العنوان",
@@ -74,16 +77,16 @@
 	},
 	"howWeWork": {
 		"firstCard": {
-			"title": "عنوان البطاقة",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "الدفع الآمن",
+			"body": "نستخدم تقنية تشفير صناعية قياسية لحماية معلومات الدفع الخاصة بك، مما يضمن سلامة وأمان تفاصيلك الشخصية والمالية في كل الأوقات. كما يتم التحقق من بوابة الدفع الخاصة بنا من خلال خدمات الجهات الثالثة الموثوقة لضمان أعلى مستوى من الأمان. يمكنك التسوق على موقعنا بثقة، علمًا بأن معلوماتك محمية في كل خطوة من الطريق."
 		},
 		"secondCard": {
-			"title": "عنوان البطاقة",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "التوصيل",
+			"body": "نحن ملتزمون بتقديم تجربة استثنائية من البداية إلى النهاية، بما في ذلك تسليم مشترياتك. نشترك مع شركاء شحن موثوقين لضمان وصول طلبك بسرعة وفي حالة ممتازة. يقوم فريقنا بتغليف كل عنصر بعناية لضمان حمايته خلال الشحن، ونقدم معلومات التتبع حتى تتمكن من البقاء على اطلاع على تقدم التسليم ومتابعة الشحن."
 		},
 		"thirdCard": {
-			"title": "عنوان البطاقة",
-			"body": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore"
+			"title": "خدمة العملاء",
+			"body": "في ماستر شاف، نقدر عملائنا ونسعى جاهدين لتقديم خدمة استثنائية. فريق خدمة العملاء المتعلم والودي هو متاح للإجابة على أي أسئلة أو مخاوف قد تواجهها قبل وأثناء وبعد عملية الشراء. يمكنك الاتصال بنا في أي وقت، وسنكون سعداء بمساعدتك في أي شيء تحتاجه."
 		}
 	},
 	"authPage": {

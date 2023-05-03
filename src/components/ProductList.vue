@@ -3,9 +3,7 @@ import { ref, watch } from 'vue'
 import { useWishListStore, useCartStore } from '../stores/index.js'
 import FilterData from './FilterData.vue'
 import alerts from '../alerts/alert.js'
-import { useI18n } from 'vue-i18n'
 
-const { locale } = useI18n({ useScope: 'global' })
 const emit = defineEmits(['filterHandler', 'changePageHandle'])
 
 const componentProps = defineProps({
@@ -53,16 +51,15 @@ const changePageHandle = async (pageNumber) => {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
 	z-index: 9999;
 	height: 50px;
 	/* to make the icon in the right */
-	/* width: 50%; */
+	width: 50%;
 }
 .offers-badg img {
 	height: 50px;
 	/* to make the icon in the right */
-	/* left: -19px; */
+	left: -19px;
 }
 </style>
 
@@ -135,7 +132,41 @@ const changePageHandle = async (pageNumber) => {
 							</router-link>
 							<v-row
 								v-if="isHovering"
-								class="ma-0 w-100 hidden-sm-and-down justify-center"
+								class="ma-0 w-100 justify-center hidden-md-and-down"
+								style="position: absolute; bottom: 2%"
+							>
+								<v-btn
+									:icon="
+										wishListStore.checkExists(product.id)
+											? 'mdi-heart'
+											: 'mdi-heart-outline'
+									"
+									@click="addToWishList(product.id)"
+									size="small"
+									:class="`${
+										wishListStore.checkExists(product.id) ? 'text-info' : null
+									}  ma-2 pt-1 text-info hovered-icon`"
+									color="white"
+								></v-btn>
+								<v-btn
+									icon="mdi-magnify"
+									:to="`/product/${product.slug}`"
+									size="small"
+									class="ma-2 pt-1 text-info hovered-icon"
+									color="white "
+								></v-btn>
+								<v-btn
+									icon="mdi-cart-outline"
+									@click="
+										addToCart(product.variations[0].id, product.min_qty || 1)
+									"
+									size="small"
+									class="ma-2 pt-1 text-info hovered-icon"
+									color="white "
+								></v-btn>
+							</v-row>
+							<v-row
+								class="ma-0 w-100 justify-center hidden-md-and-up"
 								style="position: absolute; bottom: 2%"
 							>
 								<v-btn
@@ -169,47 +200,14 @@ const changePageHandle = async (pageNumber) => {
 								></v-btn>
 							</v-row>
 						</v-card>
-						<v-card-title class="text-center hidden-md-and-up">
-							<v-row class="ma-0 w-100 justify-center">
-								<v-btn
-									:icon="
-										wishListStore.checkExists(product.id)
-											? 'mdi-heart'
-											: 'mdi-heart-outline'
-									"
-									@click="addToWishList(product.id)"
-									size="small"
-									:class="`${
-										wishListStore.checkExists(product.id) ? 'text-info' : null
-									}  ma-2 pt-1`"
-									color="white"
-								></v-btn>
-								<v-btn
-									icon="mdi-magnify"
-									:to="`/product/${product.id}`"
-									size="small"
-									class="ma-2 pt-1"
-									color="white "
-								></v-btn>
-								<v-btn
-									icon="mdi-cart-outline"
-									@click="
-										addToCart(product.variations[0].id, product.min_qty || 1)
-									"
-									size="small"
-									class="ma-2 pt-1"
-									color="white "
-								></v-btn>
-							</v-row>
-						</v-card-title>
+
 						<v-card-title
 							style="background-color: #005490"
 							class="text-white text-center"
 						>
 							<p class="text-subtitle-1">
-								{{ locale === 'ar' ? '...' : ''
-								}}{{ product.name.substring(0, 30) }}
-								{{ locale === 'en' ? '...' : '' }}
+								{{ product.name.substring(0, 30) }}
+								{{ product.name.length > 30 ? '...' : '' }}
 							</p>
 							<v-card-subtitle class="text-subtitle-2">
 								<span
@@ -231,10 +229,20 @@ const changePageHandle = async (pageNumber) => {
 				</template>
 			</v-hover>
 		</v-layout>
-		<div v-if="componentProps.totalPage" class="text-center">
+		<div v-if="componentProps.totalPage" class="text-center hidden-sm-and-down">
 			<v-pagination
 				v-model="page"
 				:total-visible="6"
+				@update:modelValue="(res) => changePageHandle(res)"
+				:length="componentProps.totalPage"
+				prev-icon="mdi-menu-left"
+				next-icon="mdi-menu-right"
+			></v-pagination>
+		</div>
+		<div v-if="componentProps.totalPage" class="text-center hidden-md-and-up">
+			<v-pagination
+				v-model="page"
+				:total-visible="1"
 				@update:modelValue="(res) => changePageHandle(res)"
 				:length="componentProps.totalPage"
 				prev-icon="mdi-menu-left"

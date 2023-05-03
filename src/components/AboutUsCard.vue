@@ -11,7 +11,15 @@
 					{{ $t('aboutUsCard.title') }}
 				</v-card-title>
 				<v-card-text class="text-center">
-					{{ $t('aboutUsCard.body') }}
+					<p class="mb-2">
+						{{ $t('aboutUsCard.about1') }}
+					</p>
+					<p class="mb-2">
+						{{ $t('aboutUsCard.about2') }}
+					</p>
+					<p class="mb-2">
+						{{ $t('aboutUsCard.about3') }}
+					</p>
 				</v-card-text>
 			</v-container>
 		</Transition>

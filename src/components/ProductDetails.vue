@@ -22,6 +22,7 @@ const productStore = useProductStore()
 const wishListStore = useWishListStore()
 const qty = ref(props.data.min_qty)
 const pic = ref(props.data.photos)
+const isSubmit = ref(false)
 const reviews = ref(await getReviews())
 
 const selectedPic = ref(0)
@@ -30,12 +31,18 @@ const form = ref({ comment: '', rating: 0, product_id: props.data.id })
 watch(props, async () => {
 	qty.value = props.data.min_qty
 	pic.value = props.data.photos
+	form.value = { comment: '', rating: 0, product_id: props.data.id }
+	reviews.value = await getReviews()
+})
+
+watch(isSubmit, async () => {
 	reviews.value = await getReviews()
 })
 
 const submitReview = async () => {
 	productStore.submitProductReview(form.value)
 	reviews.value = await getReviews()
+	isSubmit.value = !isSubmit.value
 	form.value = ref({ comment: '', rating: 0, product_id: props.data.id })
 }
 
@@ -54,142 +61,174 @@ const addToWishList = async (id) => {
 }
 </script>
 
-<style>
-.icon:hover {
-	color: red;
-}
-</style>
-
 <template>
 	<v-layout class="d-flex flex-wrap ma-auto justify-center align-self-center">
-		<v-card class="w-75 elevation-0 py-10 justify-left align-self-center">
-			<v-row>
-				<v-col md="5" cols="12">
-					<v-img
-						class="pulse"
-						:src="pic[selectedPic]"
-						height="450"
-						width="600"
-					></v-img>
-					<v-slide-group
-						mandatory
-						v-if="pic.length > 1"
-						v-model="selectedPic"
-						class="pa-4"
-						show-arrows
-					>
-						<v-slide-group-item
-							v-for="n in pic"
-							:key="n"
-							v-slot="{ toggle, selectedClass }"
+		<v-container>
+			<v-card class="elevation-0 py-10 justify-left align-self-center">
+				<v-row>
+					<v-col md="5" cols="12">
+						<v-img
+							class="pulse"
+							:src="pic[selectedPic]"
+							height="450"
+							width="600"
+						></v-img>
+						<v-slide-group
+							mandatory
+							v-if="pic.length > 1"
+							v-model="selectedPic"
+							class="pa-4"
+							show-arrows
 						>
-							<v-card
-								:class="['ma-4  hidden-sm-and-down', selectedClass]"
-								height="150"
-								width="150"
-								@click="toggle"
+							<v-slide-group-item
+								v-for="n in pic"
+								:key="n"
+								v-slot="{ toggle, selectedClass }"
 							>
-								<v-img class="pulse" :src="n" height="200" width="250"></v-img>
-							</v-card>
-							<v-card
-								color="grey-lighten-1"
-								:class="['ma-4  hidden-md-and-up', selectedClass]"
-								height="100"
-								width="50"
-								@click="toggle"
-							>
-								<v-img class="pulse" :src="n" height="100" width="50"></v-img>
-							</v-card>
-						</v-slide-group-item>
-					</v-slide-group>
-				</v-col>
-				<v-col>
-					<v-card-title>
-						{{ props.data.name }}
-					</v-card-title>
+								<v-card
+									:class="['ma-4  hidden-sm-and-down', selectedClass]"
+									height="150"
+									width="150"
+									@click="toggle"
+								>
+									<v-img
+										class="pulse"
+										:src="n"
+										height="200"
+										width="250"
+									></v-img>
+								</v-card>
+								<v-card
+									color="grey-lighten-1"
+									:class="['ma-4  hidden-md-and-up', selectedClass]"
+									height="100"
+									width="50"
+									@click="toggle"
+								>
+									<v-img class="pulse" :src="n" height="100" width="50"></v-img>
+								</v-card>
+							</v-slide-group-item>
+						</v-slide-group>
+					</v-col>
 					<v-col>
 						<v-card-title>
-							<span
-								:class="`${
-									props.data.base_price > props.data.base_discounted_price &&
-									'text-decoration-line-through'
-								}`"
-								>{{ props.data.base_price }} {{ $t('currencyLabel') }}</span
-							>
-							<span
-								class="text-blue pa-2"
-								v-if="props.data.base_price > props.data.base_discounted_price"
-								>{{ props.data.base_discounted_price }}
-								{{ $t('currencyLabel') }}</span
-							>
+							{{ props.data.name }}
 						</v-card-title>
-					</v-col>
-					<v-card-subtitle>
-						{{ $t('productDetails.stockLabel') }}:
-						<span>
-							{{
-								props.data.stock
-									? props.data.stock
-									: $t('productDetails.outOfStockTitle')
-							}}</span
-						>
-					</v-card-subtitle>
-					<v-card-text>
-						{{ props.data.description }}
-					</v-card-text>
-					<v-card-text>
-						<v-divider />
-					</v-card-text>
-
-					<v-card-actions class="justify-center">
-						<!-- flex-wrap justify-center align-self-center -->
-						<div
-							class="d-flex w-100"
-							style="align-items: center; justify-content: space-between"
-						>
-							<div
-								style="
-									display: flex;
-									align-items: center;
-									justify-content: space-between;
-								"
-							>
-								<v-btn
-									color="blue"
-									:disabled="qty - 1 < props.data.min_qty ? true : false"
-									variant="text"
-									@click="qty--"
-									icon="mdi-minus"
-								></v-btn>
-								<v-text-field class="mx-2 py-0" disabled v-model="qty" />
-								<v-btn
-									color="blue"
-									:disabled="
-										props.data.max_qty && qty + 1 > props.data.max_qty
-											? true
-											: false
+						<v-col>
+							<v-card-title>
+								<span
+									:class="`${
+										props.data.base_price > props.data.base_discounted_price &&
+										'text-decoration-line-through'
+									}`"
+									>{{ props.data.base_price }} {{ $t('currencyLabel') }}</span
+								>
+								<span
+									class="text-blue pa-2"
+									v-if="
+										props.data.base_price > props.data.base_discounted_price
 									"
-									class="mx-0"
-									variant="text"
-									@click="qty++"
-									icon="mdi-plus"
+									>{{ props.data.base_discounted_price }}
+									{{ $t('currencyLabel') }}</span
+								>
+							</v-card-title>
+						</v-col>
+						<v-card-subtitle>
+							{{ $t('productDetails.stockLabel') }}:
+							<span>
+								{{
+									props.data.stock
+										? props.data.stock
+										: $t('productDetails.outOfStockTitle')
+								}}</span
+							>
+						</v-card-subtitle>
+						<v-card-text>
+							{{ props.data.description }}
+						</v-card-text>
+						<v-card-text>
+							<v-divider />
+						</v-card-text>
+
+						<v-card-actions class="justify-center">
+							<!-- flex-wrap justify-center align-self-center -->
+							<div
+								class="d-flex w-100"
+								style="align-items: center; justify-content: space-between"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: center;
+										justify-content: space-between;
+									"
+								>
+									<v-btn
+										color="blue"
+										:disabled="qty - 1 < props.data.min_qty ? true : false"
+										variant="text"
+										@click="qty--"
+										icon="mdi-minus"
+									></v-btn>
+									<v-text-field class="mx-2 py-0" disabled v-model="qty" />
+									<v-btn
+										color="blue"
+										:disabled="
+											props.data.max_qty && qty + 1 > props.data.max_qty
+												? true
+												: false
+										"
+										class="mx-0"
+										variant="text"
+										@click="qty++"
+										icon="mdi-plus"
+									></v-btn>
+								</div>
+
+								<!-- <div class="d-flex"> -->
+								<!-- <v-col col="6"> -->
+								<v-btn
+									color="blue-grey"
+									size="large"
+									prepend-icon="mdi-cart-outline"
+									class="ml-3 hidden-sm-and-down"
+									@click="addToCart(props.data.variations[0].id, qty)"
+									>{{ $t('productDetails.addToCartBtn') }}
+								</v-btn>
+								hi ther how are you{{ props.data.id }}
+								<v-btn
+									color="blue-grey"
+									@click="addToWishList(props.data.id)"
+									size="small"
+									:icon="
+										wishListStore.checkExists(props.data.id)
+											? 'mdi-heart'
+											: 'mdi-heart-outline'
+									"
+									:class="`${
+										wishListStore.checkExists(props.data.id)
+											? 'text-info'
+											: null
+									}  hidden-sm-and-down`"
 								></v-btn>
+								<!-- </v-col> -->
+								<!-- </div> -->
 							</div>
 
-							<!-- <div class="d-flex"> -->
-							<!-- <v-col col="6"> -->
+							<v-spacer class="hidden-sm-and-down" />
+						</v-card-actions>
+
+						<v-card-actions class="hidden-md-and-up">
+							<v-spacer />
 							<v-btn
 								color="blue-grey"
-								size="large"
-								prepend-icon="mdi-cart-outline"
-								class="ml-3 hidden-sm-and-down"
+								icon="mdi-cart-outline"
 								@click="addToCart(props.data.variations[0].id, qty)"
-								>{{ $t('productDetails.addToCartBtn') }}
-							</v-btn>
+								class="mb-5 hidden-md-and-up"
+							></v-btn>
 							<v-btn
 								color="blue-grey"
 								@click="addToWishList(props.data.id)"
-								size="small"
 								:icon="
 									wishListStore.checkExists(props.data.id)
 										? 'mdi-heart'
@@ -197,56 +236,30 @@ const addToWishList = async (id) => {
 								"
 								:class="`${
 									wishListStore.checkExists(props.data.id) ? 'text-info' : null
-								}  hidden-sm-and-down`"
-							></v-btn>
-							<!-- </v-col> -->
-							<!-- </div> -->
-						</div>
-
-						<v-spacer class="hidden-sm-and-down" />
-					</v-card-actions>
-
-					<v-card-actions class="hidden-md-and-up">
+								}  mb-5 hidden-md-and-up`"
+							>
+							</v-btn>
+							<v-spacer />
+						</v-card-actions>
 						<v-spacer />
 						<v-btn
-							color="blue-grey"
-							icon="mdi-cart-outline"
-							@click="addToCart(props.data.variations[0].id, qty)"
-							class="mb-5 hidden-md-and-up"
-						></v-btn>
-						<v-btn
-							color="blue-grey"
-							@click="addToWishList(props.data.id)"
-							:icon="
-								wishListStore.checkExists(props.data.id)
-									? 'mdi-heart'
-									: 'mdi-heart-outline'
+							color="blue"
+							size="large"
+							@click="
+								addToCart(props.data.variations[0].id, qty),
+									(cartStore.cartLoaded = true)
 							"
-							:class="`${
-								wishListStore.checkExists(props.data.id) ? 'text-info' : null
-							}  mb-5 hidden-md-and-up`"
+							block
+							class="ml-0"
+							>{{ $t('productDetails.buyItNowBtn') }}</v-btn
 						>
-						</v-btn>
-						<v-spacer />
-					</v-card-actions>
-					<v-spacer />
-					<v-btn
-						color="blue"
-						size="large"
-						@click="
-							addToCart(props.data.variations[0].id, qty),
-								(cartStore.cartLoaded = true)
-						"
-						block
-						class="ml-0"
-						>{{ $t('productDetails.buyItNowBtn') }}</v-btn
-					>
-				</v-col>
-			</v-row>
-		</v-card>
+					</v-col>
+				</v-row>
+			</v-card>
+		</v-container>
 	</v-layout>
-	<v-col cols="12" md="9" class="d-flex flex-wrap ma-md-auto">
-		<v-card class="w-100">
+	<v-container>
+		<v-card>
 			<v-tabs bg-color="blue" style="align-items: center" fixed-tabs>
 				<div>
 					{{ $t('productDetails.evaluationTitle') }}
@@ -400,10 +413,7 @@ const addToWishList = async (id) => {
 				</v-window>
 			</v-card-text>
 		</v-card>
-	</v-col>
-	<v-layout
-		class="d-flex flex-wrap ma-auto justify-center w-75 align-self-center"
-	>
-		<ProductSlider :id="props.data.id" />
-	</v-layout>
+	</v-container>
+
+	<ProductSlider :id="props.data.id" />
 </template>

@@ -26,6 +26,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-node_modules
-node_modules
+
+# Editor directories and files
 node_modules
