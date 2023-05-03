@@ -47,7 +47,7 @@ watchEffect(async () => {
 </script>
 
 <template>
-	<Main />
+	<Main></Main>
 	<AboutUsCard />
 	<CategoryView :animation="true" />
 	<HowWeWork />

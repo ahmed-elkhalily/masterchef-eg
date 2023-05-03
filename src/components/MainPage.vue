@@ -1,64 +1,86 @@
-<template>
-	<v-layout
-		style="padding-top: 5%"
-		class="d-flex flex-wrap ma-12 justify-center"
-	>
-		<Transition name="horizontalPic" appear>
-			<v-img
-				class="h-50 hidden-sm-and-down pulse"
-				style="
-					position: absolute;
-					z-index: 3000;
-					width: 35%;
-					left: 25%;
-					top: -10%;
-				"
-				src="./welcome2.jpg"
-				height="450"
-				width="500"
-				cover
-			></v-img>
-		</Transition>
-		<Transition name="horizontalPicMobile" appear>
-			<v-img
-				class="h-50 hidden-md-and-up pulse"
-				style="position: absolute; z-index: 3000; width: 80%; top: -20%"
-				src="./welcome2.jpg"
-				height="450"
-				width="500"
-				cover
-			></v-img>
-		</Transition>
+<style>
+/* .img-welcome-2 */
 
-		<v-card
-			style="padding-top: 5%"
-			class="w-25 hidden-sm-and-down d-flex flex-wrap elevation-0 h-25 justify-left align-self-center"
-		>
-			<v-card-title class="hidden-sm-and-down">
-				{{ $t('mainPage.title') }}
-			</v-card-title>
-			<v-card-text class="text-left hidden-sm-and-down">
-				{{ $t('mainPage.body') }}
-			</v-card-text>
-		</v-card>
-		<v-col cols="12" md="3" class="elevation-0 outer">
-			<Transition name="verticalPic" appear>
-				<v-img
-					class="pulse"
-					src="./welcome1.jpg"
-					height="450"
-					width="500"
-					cover
-				></v-img>
+.main-imgs-contianer {
+	position: relative;
+}
+.main-imgs-contianer .main-img {
+	margin-top: 120px;
+}
+.main-imgs-contianer .sec-img {
+	position: absolute;
+	top: 2%;
+	left: 50%;
+	width: 80%;
+	transform: translateX(-50%);
+	height: 300px;
+	z-index: 999;
+}
+
+.main-title {
+	align-items: center;
+	margin-top: 22%;
+}
+
+/* @media (max-width: 992px) {
+	.main-imgs-contianer .main-title {
+		/* margin-top: 20%; */
+/* display: none; */
+/* } */
+/* } */
+
+@media (max-width: 992px) {
+	.main-imgs-contianer .main-title {
+		display: none !important;
+	}
+	.main-imgs-contianer .main-img {
+		/* display: none !important; */
+		/* border: 1px solid red; */
+	}
+}
+
+@media (max-width: 552px) {
+	.img-welcome-2 {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: contain;
+		object-position: bottom;
+	}
+}
+</style>
+
+<template>
+	<v-container>
+		<v-row class="main-imgs-contianer mb-10">
+			<Transition name="horizontalPicMobile" appear>
+				<v-img class="sec-img" src="./welcome2.jpg" />
 			</Transition>
-		</v-col>
-	</v-layout>
+			<v-col md="6" cols="12" class="d-flex main-title">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ratione
+					expedita veritatis quo aliquid nisi, obcaecati error numquam, id quae
+					quis molestias at tempore sint eum perspiciatis rerum doloribus, odio
+					aperiam! Quaerat mollitia magni quidem architecto itaque natus
+					accusantium nam nesciunt, quae sit pariatur assumenda harum
+					exercitationem culpa ea eos!
+				</p>
+			</v-col>
+
+			<v-col md="6" cols="12">
+				<div class="image-container">
+					<Transition name="verticalPic" appear>
+						<v-img class="main-img" src="./welcome1.jpg" alt="welcome" />
+					</Transition>
+				</div>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <style scoped>
 .verticalPic-enter-from {
 	opacity: 0;
-	transform: translateX(110%);
+	transform: translateX(-110%);
 }
 
 .verticalPic-enter-to {

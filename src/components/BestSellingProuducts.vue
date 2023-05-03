@@ -3,6 +3,11 @@ import { ref, watch } from 'vue'
 import { useWishListStore, useCartStore } from '../stores/index.js'
 import alerts from '../alerts/alert.js'
 import { useI18n } from 'vue-i18n'
+// working with swipper
+import { Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const { locale } = useI18n({ useScope: 'global' })
 
@@ -36,42 +41,212 @@ const addToWishList = async (id) => {
 		alert.message(' Operation done successfully')
 	}
 }
+
+// slider
+const modules = [Pagination]
 </script>
-<style>
+
+<style lang="scss" scoped>
 /* custom css */
+
 .hovered-icon {
 	transition: all 0.5s ease-in-out;
 }
 .hovered-icon:hover {
 	color: #005490 !important;
 }
+/* min-width="275" */
+/*  min-width="275" */
+.bestselling-slider,
+.bestselling-slider-1 {
+	min-width: 275px;
+}
+
+@media (max-width: 552px) {
+	.bestselling-slider,
+	.bestselling-slider-1 {
+		min-width: 225px !important;
+	}
+
+	.v-slide-group__next,
+	.v-slide-group__prev {
+		min-width: 1rem !important;
+	}
+}
+
+/* slider */
 </style>
 
 <template>
-	<v-layout class="d-flex flex-wrap w-75 ma-auto">
-		<v-col cols="2" class="pt-5 hidden-sm-and-down">
-			<p class="text-h6">{{ $t('bestSellings') }}</p>
-		</v-col>
-		<v-divider />
-	</v-layout>
-	<v-spacer class="hidden-sm-and-down" />
+	<v-container>
+		<v-layout class="d-flex flex-wrap ma-auto">
+			<v-col class="pt-5">
+				<p class="text-h6">{{ $t('bestSellings') }}</p>
+			</v-col>
+			<v-divider />
+		</v-layout>
+		<v-spacer class="hidden-sm-and-down" />
 
-	<v-layout
-		class="d-flex flex-wrap w-75 ma-auto justify-center align-self-center"
-	>
-		<!-- start slider -->
-		<v-slide-group class="pa-4" show-arrows>
+		<!-- :space-between="10" -->
+		<swiper
+			class="swiper"
+			:modules="modules"
+			:slides-per-view="1"
+			:breakpoints="{
+				'640': {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				'768': {
+					slidesPerView: 2,
+					spaceBetween: 10
+				},
+				'1024': {
+					slidesPerView: 4,
+					spaceBetween: 10
+				}
+			}"
+			:pagination="{ clickable: true }"
+		>
+			<swiper-slide v-for="(product, i) in products" :key="i" class="slide">
+				<v-hover>
+					<template v-slot:default="{ isHovering, props }">
+						<v-card
+							v-bind="props"
+							class="mx-2 my-12 elevation-3 bestselling-slider"
+						>
+							<v-card
+								class="elevation-0 justify-center align-self-center bestselling-slider-1"
+							>
+								<router-link :to="`/product/${product.slug}`">
+									<v-img
+										class="pulse"
+										:src="product.thumbnail_image"
+										height="270"
+										cover
+									/>
+								</router-link>
+								<v-row
+									v-if="isHovering"
+									class="ma-0 w-100 hidden-sm-and-down justify-center"
+									style="position: absolute; bottom: 2%"
+								>
+									<v-btn
+										:icon="
+											wishListStore.checkExists(product.id)
+												? 'mdi-heart'
+												: 'mdi-heart-outline'
+										"
+										@click="addToWishList(product.id)"
+										size="small"
+										:class="`${
+											wishListStore.checkExists(product.id) ? 'text-info' : null
+										}  ma-2 pt-1 text-info hovered-icon`"
+										color="white"
+									></v-btn>
+									<v-btn
+										icon="mdi-magnify"
+										:to="`/product/${product.slug}`"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+									<v-btn
+										icon="mdi-cart-outline"
+										@click="
+											addToCart(product.variations[0].id, product.min_qty || 1)
+										"
+										size="small"
+										class="ma-2 pt-1 text-info hovered-icon"
+										color="white "
+									></v-btn>
+								</v-row>
+							</v-card>
+							<v-card-title class="text-center hidden-md-and-up">
+								<v-row class="ma-0 w-100 justify-center">
+									<v-btn
+										:icon="
+											wishListStore.checkExists(product.id)
+												? 'mdi-heart'
+												: 'mdi-heart-outline'
+										"
+										@click="addToWishList(product.id)"
+										size="small"
+										:class="`${
+											wishListStore.checkExists(product.id) ? 'text-info' : null
+										}  ma-2 pt-1`"
+										color="white"
+									></v-btn>
+									<v-btn
+										icon="mdi-magnify"
+										:to="`/product/${product.id}`"
+										size="small"
+										class="ma-2 pt-1"
+										color="white "
+									></v-btn>
+									<v-btn
+										icon="mdi-cart-outline"
+										@click="
+											addToCart(product.variations[0].id, product.min_qty || 1)
+										"
+										size="small"
+										class="ma-2 pt-1"
+										color="white "
+									></v-btn>
+								</v-row>
+							</v-card-title>
+							<v-card-title
+								style="background-color: #005490"
+								class="text-white text-center"
+							>
+								<p class="text-subtitle-1">
+									<!-- todo: we need to add tooltip -->
+									{{ product.name.substring(0, 30) }}
+								</p>
+								<v-card-subtitle class="text-subtitle-2">
+									<span
+										:class="`${
+											product.base_price > product.base_discounted_price &&
+											'text-decoration-line-through'
+										}`"
+										>{{ product.base_price }} {{ $t('currencyLabel') }}</span
+									>
+									<span
+										class="text-info pa-2"
+										v-if="product.base_price > product.base_discounted_price"
+										>{{ product.base_discounted_price }}
+										{{ $t('currencyLabel') }}</span
+									>
+								</v-card-subtitle>
+							</v-card-title>
+						</v-card>
+					</template>
+				</v-hover>
+			</swiper-slide>
+		</swiper>
+	</v-container>
+</template>
+
+<!-- <template>
+	<v-container>
+		<v-layout class="d-flex flex-wrap ma-auto">
+			<v-col class="pt-5">
+				<p class="text-h6">{{ $t('bestSellings') }}</p>
+			</v-col>
+			<v-divider />
+		</v-layout>
+		<v-spacer class="hidden-sm-and-down" />
+
+		<v-slide-group class="py-4" show-arrows>
 			<v-slide-group-item v-for="(product, i) in products" :key="i">
 				<v-hover v-for="(product, i) in products" :key="i">
 					<template v-slot:default="{ isHovering, props }">
 						<v-card
 							v-bind="props"
-							class="mx-2 my-12 elevation-3"
-							min-width="275"
+							class="mx-2 my-12 elevation-3 bestselling-slider"
 						>
 							<v-card
-								class="elevation-0 justify-center align-self-center"
-								min-width="275"
+								class="elevation-0 justify-center align-self-center bestselling-slider-1"
 							>
 								<router-link :to="`/product/${product.slug}`">
 									<v-img
@@ -180,16 +355,6 @@ const addToWishList = async (id) => {
 				</v-hover>
 			</v-slide-group-item>
 		</v-slide-group>
-		<!-- end slider -->
-	</v-layout>
-	<!-- <div v-if="componentProps.totalPage" class="text-center"> -->
-	<!-- <v-pagination
-			v-model="page"
-			:total-visible="6"
-			@update:modelValue="(res) => changePageHandle(res)"
-			:length="componentProps.totalPage"
-			prev-icon="mdi-menu-left"
-			next-icon="mdi-menu-right"
-		></v-pagination> -->
-	<!-- </div> -->
-</template>
+
+	</v-container>
+</template> -->

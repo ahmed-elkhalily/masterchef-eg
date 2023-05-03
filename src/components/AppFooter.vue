@@ -1,22 +1,23 @@
 <script setup>
-	import { ref } from "vue";
-	import { useSettingStore, useCategoryStore } from "../stores/index.js";
-	import { useI18n } from "vue-i18n";
+import { ref } from 'vue'
+import { useSettingStore, useCategoryStore } from '../stores/index.js'
+import { useI18n } from 'vue-i18n'
 
-	const settingStore = useSettingStore();
-	const categoryStore = useCategoryStore();
+const settingStore = useSettingStore()
+const categoryStore = useCategoryStore()
 
-	const data = ref(await settingStore.getFooter());
-	await categoryStore.load();
-	const { locale } = useI18n({ useScope: "global" });
+const data = ref(await settingStore.getFooter())
+await categoryStore.load()
+const { locale } = useI18n({ useScope: 'global' })
 </script>
+
 <template>
 	<v-footer
 		style="background-color: #005490"
 		class="text-white text-center justify-center mt-12 py-12 px-5 d-flex flex-wrap"
 	>
 		<v-col cols="8">
-			<v-img class="pulse" :src="data.footer_logo" height="80" width="200" />
+			<v-img class="pulse" :src="data?.footer_logo" height="80" width="200" />
 			<v-spacer />
 		</v-col>
 		<v-col cols="8">
@@ -24,60 +25,62 @@
 		</v-col>
 		<v-col cols="8">
 			<v-row>
-				<v-col class="text-left">
+				<v-col class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
-							{{ $t("appFooter.categoryTitle") }}
+							{{ $t('appFooter.categoryTitle') }}
 						</p>
 					</v-card-text>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						v-for="item in categoryStore.items"
+						:key="item"
 						:to="`/category/${item.id}/product/`"
 					>
 						<p class="py-2">{{ item.name }}</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-left">
+				<v-col class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
-							{{ $t("appFooter.myAccountTitle") }}
+							{{ $t('appFooter.myAccountTitle') }}
 						</p>
 					</v-card-text>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						:to="`/user`"
 					>
-						<p class="py-2">{{ $t("userBoard.tabs.dashboardName") }}</p>
+						<p class="py-2">{{ $t('userBoard.tabs.dashboardName') }}</p>
 					</router-link>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						:to="`/user#accountDetails`"
 					>
-						<p class="py-2">{{ $t("userBoard.tabs.accountDetailsName") }}</p>
+						<p class="py-2">{{ $t('userBoard.tabs.accountDetailsName') }}</p>
 					</router-link>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						:to="`/user#orders`"
 					>
-						<p class="py-2">{{ $t("userBoard.tabs.orderName") }}</p>
+						<p class="py-2">{{ $t('userBoard.tabs.orderName') }}</p>
 					</router-link>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						:to="`/user#wishlist`"
 					>
-						<p class="py-2">{{ $t("userBoard.tabs.wishlistName") }}</p>
+						<p class="py-2">{{ $t('userBoard.tabs.wishlistName') }}</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-left">
+				<v-col class="text-start">
 					<v-card-text class="ml-0 pl-0" style="color: #42c0f9">
 						<p style="cursor: pointer" class="text-subtitle-1 font-weight-bold">
-							{{ $t("appFooter.policyTitle") }}
+							{{ $t('appFooter.policyTitle') }}
 						</p>
 					</v-card-text>
 					<router-link
 						style="color: inherit; text-decoration: inherit"
 						v-for="(item, i) in data.footer_policy"
+						:key="item"
 						:to="`/policy/${i}`"
 					>
 						<p class="py-2">
@@ -89,10 +92,10 @@
 						</p>
 					</router-link>
 				</v-col>
-				<v-col class="text-left">
+				<v-col class="text-start">
 					<v-card-text style="color: #42c0f9">
 						<p class="text-subtitle-1 font-weight-bold">
-							{{ $t("appFooter.contactUsTitle") }}
+							{{ $t('appFooter.contactUsTitle') }}
 						</p>
 					</v-card-text>
 					<v-card-text class="headline px-0">

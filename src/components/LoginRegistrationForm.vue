@@ -72,168 +72,178 @@ const resendCode = async () => {
 </script>
 
 <template>
-	<v-form
-		v-if="emailForm"
-		class="d-flex flex-wrap justify-center align-center h-100"
-	>
-		<v-col cols="10" md="3" class="elevation-0">
-			<v-img
-				class="pulse"
-				src="./login.jpg"
-				height="450"
-				width="500"
-				cover
-			></v-img>
-		</v-col>
-		<v-col cols="10" md="3" class="elevation-0 justify-start align-start">
-			<v-card-text align="start">
-				<h6 class="text-h6 text-center text-md-left">{{ emailForm }}</h6>
-				<v-text-field
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="email"
-					:label="$t('authPage.emailLabel')"
-					type="email"
-					:placeholder="$t('authPage.emailPlaceholder')"
-					v-model="email"
-					@update:modelValue="
-						(res) => (email = res.replace(/[^a-z3-9@ \.,_-]/gim, ''))
-					"
-					required
-				/>
-			</v-card-text>
-			<v-btn color="info" block @click="resendCode">{{
-				$t('authPage.submitBtn')
-			}}</v-btn>
-		</v-col>
+	<v-form v-if="emailForm" class="h-100">
+		<v-container>
+			<v-row>
+				<v-col cols="12" md="6" class="elevation-0">
+					<v-img
+						class="pulse"
+						src="./login.jpg"
+						height="450"
+						width="500"
+						cover
+					></v-img>
+				</v-col>
+				<v-col cols="12" md="6" class="elevation-0 justify-start align-start">
+					<v-card-text style="padding: 0">
+						<h6 class="text-h6 text-center text-md-start">
+							{{ $t('authPage.resetTitle') }}
+						</h6>
+						<v-text-field
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 pt-2 pl-3 rounded"
+							color="info"
+							variant="plain"
+							name="email"
+							:label="$t('authPage.emailLabel')"
+							type="email"
+							:placeholder="$t('authPage.emailPlaceholder')"
+							v-model="email"
+							@update:modelValue="
+								(res) => (email = res.replace(/[^a-z3-9@ \.,_-]/gim, ''))
+							"
+							required
+						/>
+					</v-card-text>
+					<v-btn color="info" block @click="resendCode">{{
+						$t('authPage.submitBtn')
+					}}</v-btn>
+				</v-col>
+			</v-row>
+		</v-container>
 	</v-form>
 
 	<v-form v-else class="d-flex flex-wrap justify-center align-center h-100">
-		<v-col cols="10" md="3" class="elevation-0">
-			<v-img
-				class="pulse"
-				src="./login.jpg"
-				height="450"
-				width="500"
-				cover
-			></v-img>
-		</v-col>
-		<v-col cols="10" md="3" class="elevation-0 justify-start align-start">
-			<v-card-text align="start">
-				<h6 class="text-h6 text-center text-md-left">{{ checkTitle() }}</h6>
-				<v-text-field
-					v-if="props.mode === 'signup'"
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="name"
-					:label="$t('authPage.nameLabel')"
-					:placeholder="$t('authPage.namePlaceholder')"
-					v-model="form.name"
-					required
-				/>
-				<v-text-field
-					v-if="props.mode === 'signup'"
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="phoneNumber"
-					:label="$t('authPage.phoneLabel')"
-					v-model="form.phone"
-					:placeholder="$t('authPage.phonePlaceholder')"
-					required
-				/>
-				<v-text-field
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="email"
-					:label="$t('authPage.emailLabel')"
-					type="email"
-					:placeholder="$t('authPage.emailPlaceholder')"
-					v-model="form.email"
-					@update:modelValue="
-						(res) => (email = res.replace(/[^a-z0-9@ \.,_-]/gim, ''))
-					"
-					required
-				/>
-				<v-text-field
-					v-if="props.mode === 'verify' || props.mode === 'resetPassword'"
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="code"
-					:label="$t('authPage.codeLabel')"
-					v-model="form.code"
-					:placeholder="$t('authPage.codePlaceholder')"
-					required
-				/>
-				<v-text-field
-					v-if="
-						props.mode === 'login' ||
-						props.mode === 'resetPassword' ||
-						props.mode === 'signup'
-					"
-					hide-details
-					density="compact"
-					class="elevation-2 my-5 pt-2 pl-3 rounded"
-					color="info"
-					variant="plain"
-					name="password"
-					:label="$t('authPage.passwordLabel')"
-					type="password"
-					:placeholder="$t('authPage.passwordPlaceholder')"
-					v-model="form.password"
-					@update:modelValue="
-						(res) => (password = res.replace(/[^a-z0-9!@#$%^&* \.,_-]/gim, ''))
-					"
-					active
-					required
-				/>
-				<v-btn color="info" block @click="submit">{{
-					$t('authPage.submitBtn')
-				}}</v-btn>
-				<p v-if="props.mode === 'login'" class="py-5">
-					{{ $t('authPage.forgotPasswordTitle') }}
-					<span
-						style="cursor: pointer; text-decoration: none; color: inherit"
-						class="font-weight-bold"
-						@click="emailForm = 'Reset Password'"
-					>
-						{{ $t('authPage.resetPasswordBtn') }}
-					</span>
-				</p>
+		<v-container>
+			<v-row>
+				<v-col cols="12" md="6" class="elevation-0">
+					<v-img
+						class="pulse"
+						src="./login.jpg"
+						height="450"
+						width="500"
+						cover
+					></v-img>
+				</v-col>
+				<v-col cols="12" md="6" class="elevation-0 justify-start align-start">
+					<v-card-text>
+						<h6 class="text-h6 text-center text-md-start">
+							{{ checkTitle() }}
+						</h6>
+						<v-text-field
+							v-if="props.mode === 'signup'"
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 py-2 ps-3 rounded"
+							color="info"
+							variant="plain"
+							name="name"
+							:label="$t('authPage.nameLabel')"
+							:placeholder="$t('authPage.namePlaceholder')"
+							v-model="form.name"
+							required
+						/>
+						<v-text-field
+							v-if="props.mode === 'signup'"
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 py-2 ps-3 rounded"
+							color="info"
+							variant="plain"
+							name="phoneNumber"
+							:label="$t('authPage.phoneLabel')"
+							v-model="form.phone"
+							:placeholder="$t('authPage.phonePlaceholder')"
+							required
+						/>
+						<v-text-field
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 py-2 ps-3 rounded"
+							color="info"
+							variant="plain"
+							name="email"
+							:label="$t('authPage.emailLabel')"
+							type="email"
+							:placeholder="$t('authPage.emailPlaceholder')"
+							v-model="form.email"
+							@update:modelValue="
+								(res) => (email = res.replace(/[^a-z0-9@ \.,_-]/gim, ''))
+							"
+							required
+						/>
+						<v-text-field
+							v-if="props.mode === 'verify' || props.mode === 'resetPassword'"
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 py-2 ps-3 rounded"
+							color="info"
+							variant="plain"
+							name="code"
+							:label="$t('authPage.codeLabel')"
+							v-model="form.code"
+							:placeholder="$t('authPage.codePlaceholder')"
+							required
+						/>
+						<v-text-field
+							v-if="
+								props.mode === 'login' ||
+								props.mode === 'resetPassword' ||
+								props.mode === 'signup'
+							"
+							hide-details
+							density="compact"
+							class="elevation-2 my-5 py-2 ps-3 rounded"
+							color="info"
+							variant="plain"
+							name="password"
+							:label="$t('authPage.passwordLabel')"
+							type="password"
+							:placeholder="$t('authPage.passwordPlaceholder')"
+							v-model="form.password"
+							@update:modelValue="
+								(res) =>
+									(password = res.replace(/[^a-z0-9!@#$%^&* \.,_-]/gim, ''))
+							"
+							active
+							required
+						/>
+						<v-btn color="info" block @click="submit">{{
+							$t('authPage.submitBtn')
+						}}</v-btn>
+						<p v-if="props.mode === 'login'" class="py-5">
+							{{ $t('authPage.forgotPasswordTitle') }}
+							<span
+								style="cursor: pointer; text-decoration: none; color: inherit"
+								class="font-weight-bold"
+								@click="emailForm = 'Reset Password'"
+							>
+								{{ $t('authPage.resetPasswordBtn') }}
+							</span>
+						</p>
 
-				<p v-if="props.mode === 'verify'" class="pt-5 pb-0 mb-0">
-					{{ $t('authPage.resendCodeTitle') }}
-					<span
-						style="cursor: pointer; text-decoration: none; color: inherit"
-						class="font-weight-bold"
-						@click="emailForm = 'Resend Code'"
-						>{{ $t('authPage.resendCodeBtn') }}</span
-					>
-				</p>
-				<p v-if="props.mode === 'login'" class="py-0">
-					{{ $t('authPage.createAccountTitle') }}
-					<router-link
-						style="text-decoration: none; color: inherit"
-						class="font-weight-bold"
-						to="/registration"
-						>{{ $t('authPage.createAccountBtn') }}</router-link
-					>
-				</p>
-			</v-card-text>
-		</v-col>
+						<p v-if="props.mode === 'verify'" class="pt-5 pb-0 mb-0">
+							{{ $t('authPage.resendCodeTitle') }}
+							<span
+								style="cursor: pointer; text-decoration: none; color: inherit"
+								class="font-weight-bold"
+								@click="emailForm = 'Resend Code'"
+								>{{ $t('authPage.resendCodeBtn') }}</span
+							>
+						</p>
+						<p v-if="props.mode === 'login'" class="py-0">
+							{{ $t('authPage.createAccountTitle') }}
+							<router-link
+								style="text-decoration: none; color: inherit"
+								class="font-weight-bold"
+								to="/registration"
+								>{{ $t('authPage.createAccountBtn') }}</router-link
+							>
+						</p>
+					</v-card-text>
+				</v-col>
+			</v-row>
+		</v-container>
 	</v-form>
 </template>

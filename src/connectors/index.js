@@ -10,20 +10,27 @@ import user from './user'
 import settings from './settings'
 
 export default function () {
-  const productConnectors = product()
-  const categoryConnectors = category()
-  const wishListConnectors = wishList()
-  const cartConnectors = cart()
-  const blogConnectors = blog()
-  const addressConnectors = address()
-  const orderConnectors = order()
-  const offersConnectors = offers()
-  const userConnectors = user()
-  const settingsConnectors = settings()
+	const productConnectors = product()
+	const categoryConnectors = category()
+	const wishListConnectors = wishList()
+	const cartConnectors = cart()
+	const blogConnectors = blog()
+	const addressConnectors = address()
+	const orderConnectors = order()
+	const offersConnectors = offers()
+	const userConnectors = user()
+	const settingsConnectors = settings()
 
-
-
-
-
-  return { productConnectors, categoryConnectors, wishListConnectors, cartConnectors, blogConnectors, addressConnectors, orderConnectors, offersConnectors, userConnectors, settingsConnectors }
+	return {
+		productConnectors,
+		categoryConnectors,
+		wishListConnectors,
+		cartConnectors,
+		blogConnectors,
+		addressConnectors,
+		orderConnectors,
+		offersConnectors,
+		userConnectors,
+		settingsConnectors
+	}
 }
