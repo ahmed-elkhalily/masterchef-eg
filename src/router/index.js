@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import MainView from '../views/MainView.vue'
 import ProductView from '../views/ProductView.vue'
@@ -10,7 +10,7 @@ import OfferView from '../views/OfferView.vue'
 import PolicyView from '../views/PolicyView.vue'
 
 const router = createRouter({
-	history: createWebHistory(import.meta.env.BASE_URL),
+	history: createWebHashHistory(import.meta.env.BASE_URL),
 	scrollBehavior(to, from, savedPosition) {
 		if (to.path !== from.path || to.path === '/') {
 			return { top: 0 }
