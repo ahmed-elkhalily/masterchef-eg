@@ -65,8 +65,7 @@ const props = defineProps({
 
 				<v-hover>
 					<template v-slot:default="{ isHovering, props }">
-						<v-btn<p style="font-size: 1.25rem">
-
+						<v-btn
 							v-bind="props"
 							:color="isHovering ? '#005490' : '#42c0f9'"
 							class="text-white"

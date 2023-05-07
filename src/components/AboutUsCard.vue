@@ -8,16 +8,18 @@
 		<Transition name="aboutUsSec" appear>
 			<v-container class="text-center">
 				<v-card-title>
-					{{ $t('aboutUsCard.title') }}
+					<h2>
+						{{ $t('aboutUsCard.title') }}
+					</h2>
 				</v-card-title>
 				<v-card-text class="text-center">
-					<p class="mb-2">
+					<p class="mb-2" style="font-size: 1.25rem">
 						{{ $t('aboutUsCard.about1') }}
 					</p>
-					<p class="mb-2">
+					<p class="mb-2" style="font-size: 1.25rem">
 						{{ $t('aboutUsCard.about2') }}
 					</p>
-					<p class="mb-2">
+					<p class="mb-2" style="font-size: 1.25rem">
 						{{ $t('aboutUsCard.about3') }}
 					</p>
 				</v-card-text>
