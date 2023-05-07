@@ -8,8 +8,18 @@
 				class="d-flex flex-wrap elevation-0 h-25 justify-center align-self-center"
 			>
 				<v-card-title>
-					{{ $t('howWeWork.firstCard.title') }}
+					<div class="text-center">
+						<v-icon
+							size="large"
+							color="blue-darken-2"
+							icon="mdi-credit-card-outline"
+						></v-icon>
+					</div>
+					<h4 class="mb-2">
+						{{ $t('howWeWork.firstCard.title') }}
+					</h4>
 				</v-card-title>
+
 				<v-card-text class="text-center">
 					{{ $t('howWeWork.firstCard.body') }}
 				</v-card-text>
@@ -28,7 +38,16 @@
 				class="d-flex flex-wrap elevation-0 h-25 justify-center align-self-center"
 			>
 				<v-card-title>
-					{{ $t('howWeWork.secondCard.title') }}
+					<div class="text-center">
+						<v-icon
+							size="large"
+							color="blue-darken-2"
+							icon="mdi-truck-delivery"
+						></v-icon>
+					</div>
+					<h4 class="mb-2">
+						{{ $t('howWeWork.secondCard.title') }}
+					</h4>
 				</v-card-title>
 				<v-card-text class="text-center">
 					{{ $t('howWeWork.secondCard.body') }}
@@ -51,7 +70,14 @@
 				class="d-flex flex-wrap elevation-0 h-25 justify-center align-self-center"
 			>
 				<v-card-title>
-					{{ $t('howWeWork.thirdCard.title') }}
+					<div class="text-center">
+						<v-icon
+							size="large"
+							color="blue-darken-2"
+							icon="mdi-face-agent"
+						></v-icon>
+					</div>
+					<h4 class="mb-2">{{ $t('howWeWork.thirdCard.title') }}</h4>
 				</v-card-title>
 				<v-card-text class="text-center">
 					{{ $t('howWeWork.thirdCard.body') }}

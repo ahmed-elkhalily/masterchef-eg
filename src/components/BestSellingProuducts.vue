@@ -56,6 +56,10 @@ const modules = [Pagination]
 .bestselling-slider-1 {
 	min-width: 275px;
 }
+.product-img {
+	width: 100%;
+	object-fit: cover;
+}
 
 @media (max-width: 552px) {
 	.bestselling-slider,
@@ -114,7 +118,12 @@ const modules = [Pagination]
 								style="background-color: #cacaca"
 							>
 								<router-link :to="`/product/${product.slug}`">
-									<v-img class="pulse" :src="product.thumbnail_image" />
+									<!-- <v-img class="pulse" :src="product.thumbnail_image" /> -->
+									<img
+										style=""
+										class="product-img"
+										:src="product.thumbnail_image"
+									/>
 								</router-link>
 								<v-row
 									v-if="isHovering"
