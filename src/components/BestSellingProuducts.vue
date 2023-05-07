@@ -56,10 +56,6 @@ const modules = [Pagination]
 .bestselling-slider-1 {
 	min-width: 275px;
 }
-.product-img {
-	width: 100%;
-	object-fit: cover;
-}
 
 @media (max-width: 552px) {
 	.bestselling-slider,
@@ -118,12 +114,12 @@ const modules = [Pagination]
 								style="background-color: #cacaca"
 							>
 								<router-link :to="`/product/${product.slug}`">
-									<!-- <v-img class="pulse" :src="product.thumbnail_image" /> -->
-									<img
+									<v-img class="pulse" :src="product.thumbnail_image" />
+									<!-- <img
 										style=""
 										class="product-img"
 										:src="product.thumbnail_image"
-									/>
+									/> -->
 								</router-link>
 								<v-row
 									v-if="isHovering"
@@ -195,39 +191,6 @@ const modules = [Pagination]
 									></v-btn>
 								</v-row>
 							</v-card>
-							<!-- <v-card-title class="text-center hidden-md-and-up">
-								<v-row class="ma-0 w-100 justify-center">
-									<v-btn
-										:icon="
-											wishListStore.checkExists(product.id)
-												? 'mdi-heart'
-												: 'mdi-heart-outline'
-										"
-										@click="addToWishList(product.id)"
-										size="small"
-										:class="`${
-											wishListStore.checkExists(product.id) ? 'text-info' : null
-										}  ma-2 pt-1`"
-										color="white"
-									></v-btn>
-									<v-btn
-										icon="mdi-magnify"
-										:to="`/product/${product.id}`"
-										size="small"
-										class="ma-2 pt-1"
-										color="white "
-									></v-btn>
-									<v-btn
-										icon="mdi-cart-outline"
-										@click="
-											addToCart(product.variations[0].id, product.min_qty || 1)
-										"
-										size="small"
-										class="ma-2 pt-1"
-										color="white "
-									></v-btn>
-								</v-row>
-							</v-card-title> -->
 							<v-card-title
 								style="background-color: #005490"
 								class="text-white text-center"

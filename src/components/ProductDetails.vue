@@ -184,9 +184,6 @@ const addToWishList = async (id) => {
 										icon="mdi-plus"
 									></v-btn>
 								</div>
-
-								<!-- <div class="d-flex"> -->
-								<!-- <v-col col="6"> -->
 								<v-btn
 									color="blue-grey"
 									size="large"
@@ -195,7 +192,7 @@ const addToWishList = async (id) => {
 									@click="addToCart(props.data.variations[0].id, qty)"
 									>{{ $t('productDetails.addToCartBtn') }}
 								</v-btn>
-								hi ther how are you{{ props.data.id }}
+								{{ props.data.id }}
 								<v-btn
 									color="blue-grey"
 									@click="addToWishList(props.data.id)"
@@ -211,8 +208,6 @@ const addToWishList = async (id) => {
 											: null
 									}  hidden-sm-and-down`"
 								></v-btn>
-								<!-- </v-col> -->
-								<!-- </div> -->
 							</div>
 
 							<v-spacer class="hidden-sm-and-down" />

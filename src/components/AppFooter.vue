@@ -128,14 +128,6 @@ const { locale } = useI18n({ useScope: 'global' })
 					style="background-color: white"
 					color="red"
 				></v-btn>
-				<!-- <v-btn
-					density="comfortable"
-					class="ma-2"
-					variant="text"
-					icon="mdi-twitter"
-					style="background-color: white"
-					color="info"
-				></v-btn> -->
 			</div>
 
 			<strong>@{{ data.copyright_text }}</strong>

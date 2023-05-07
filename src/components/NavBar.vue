@@ -21,6 +21,17 @@ const changeLanguage = (lang) => {
 	location.reload()
 }
 </script>
+<style lang="scss">
+.change-lang {
+	&.v-select .v-field .v-field__append-inner > .v-icon {
+		margin-inline-start: -10px;
+		margin-block: 0.2rem;
+	}
+}
+.bg-info {
+	color: white !important;
+}
+</style>
 
 <template>
 	<v-locale-provider :rtl="locale === 'ar' ? true : false">
@@ -97,19 +108,29 @@ const changeLanguage = (lang) => {
 				stacked
 				@click="router.push({ path: '/user', hash: '#wishlist' })"
 			>
-				<v-badge :content="wishListStore.numOfElement" color="info">
+				<v-badge
+					text-color="white"
+					color="#42c0f9"
+					floating
+					:content="wishListStore.numOfElement"
+				>
 					<v-icon>mdi-heart-outline</v-icon>
 				</v-badge>
 			</v-btn>
 
 			<v-btn class="text-none" stacked @click="cartStore.cartLoaded = true">
-				<v-badge :content="cartStore.numOfElement" color="info">
+				<v-badge
+					floating
+					text-color="white"
+					color="#42c0f9"
+					:content="cartStore.numOfElement"
+				>
 					<v-icon>mdi-cart-outline</v-icon>
 				</v-badge>
 			</v-btn>
 
 			<v-btn class="text-none hidden-sm-and-down" to="/user" stacked>
-				<v-icon>mdi-account-outline</v-icon>
+				<v-icon size="large">mdi-account-outline</v-icon>
 			</v-btn>
 
 			<div class="pa-2 mb-2">
@@ -118,7 +139,7 @@ const changeLanguage = (lang) => {
 					@update:modelValue="(res) => changeLanguage(res)"
 					variant="plain"
 					density="compact"
-					class="rounded"
+					class="rounded change-lang"
 					color="info"
 					v-model="locale"
 					:items="lang"
