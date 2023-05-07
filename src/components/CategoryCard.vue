@@ -53,15 +53,20 @@ const props = defineProps({
 				class="d-flex flex-wrap elevation-0 h-25 order-1 justify-center align-self-center"
 			>
 				<v-card-title>
-					{{ category.name }}
+					<h2>
+						{{ category.name }}
+					</h2>
 				</v-card-title>
 				<v-card-text class="text-center">
-					{{ category.description }}
+					<p style="font-size: 1.25rem">
+						{{ category.description }}
+					</p>
 				</v-card-text>
 
 				<v-hover>
 					<template v-slot:default="{ isHovering, props }">
-						<v-btn
+						<v-btn<p style="font-size: 1.25rem">
+
 							v-bind="props"
 							:color="isHovering ? '#005490' : '#42c0f9'"
 							class="text-white"
