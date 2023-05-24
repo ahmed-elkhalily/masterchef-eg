@@ -2,24 +2,16 @@ import { defineStore } from 'pinia'
 import useSystemMessagesStore from './systemMessages.js'
 
 export default (connectors) => {
-	const store = defineStore('offer', {
+	const store = defineStore('clients', {
 		state: () => ({
-			items: []
+			ourClients: []
 		}),
 		actions: {
 			async load() {
 				try {
-					const res = await connectors.listOffers()
-					this.items = res
+					const res = await connectors.clients()
+					this.ourClients = res.data
 					return res
-				} catch (error) {
-					useSystemMessagesStore().addError(error)
-				}
-			},
-			async getOne(id) {
-				try {
-					const res = await connectors.list({ id })
-					return res.products.data
 				} catch (error) {
 					useSystemMessagesStore().addError(error)
 				}

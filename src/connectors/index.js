@@ -8,6 +8,8 @@ import order from './order'
 import offers from './offers'
 import user from './user'
 import settings from './settings'
+import ourClients from './our-clients'
+import mainFeatured from './main-featured'
 
 export default function () {
 	const productConnectors = product()
@@ -20,6 +22,8 @@ export default function () {
 	const offersConnectors = offers()
 	const userConnectors = user()
 	const settingsConnectors = settings()
+	const ourClientsConnectors = ourClients()
+	const ourMainFeaturedProducts = mainFeatured()
 
 	return {
 		productConnectors,
@@ -31,6 +35,8 @@ export default function () {
 		orderConnectors,
 		offersConnectors,
 		userConnectors,
-		settingsConnectors
+		settingsConnectors,
+		ourClientsConnectors,
+		ourMainFeaturedProducts
 	}
 }

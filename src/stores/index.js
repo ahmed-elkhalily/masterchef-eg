@@ -9,53 +9,70 @@ import createOrderStore from './order.js'
 import createWishListStore from './wishlist.js'
 import createOfferStore from './offers.js'
 import createSettingStore from './settings.js'
+import createOurClientsStore from './ourClients.js'
 
 const useProductStore = () => {
-  const store = createProductStore(connectors().productConnectors)
-  return store()
+	const store = createProductStore(connectors().productConnectors)
+	return store()
 }
 
 const useCategoryStore = () => {
-  const store = createCategoryStore(connectors().categoryConnectors)
-  return store()
+	const store = createCategoryStore(connectors().categoryConnectors)
+	return store()
 }
 
 const useAddressStore = () => {
-  const store = createAddressStore(connectors().addressConnectors)
-  return store()
+	const store = createAddressStore(connectors().addressConnectors)
+	return store()
 }
 
 const useAuthStore = () => {
-  const store = createAuthStore(connectors().userConnectors)
-  return store()
+	const store = createAuthStore(connectors().userConnectors)
+	return store()
 }
 const useBlogStore = () => {
-  const store = createBlogStore(connectors().blogConnectors)
-  return store()
+	const store = createBlogStore(connectors().blogConnectors)
+	return store()
 }
 
 const useCartStore = () => {
-  const store = createCartStore(connectors().cartConnectors)
-  return store()
+	const store = createCartStore(connectors().cartConnectors)
+	return store()
 }
 const useOrderStore = () => {
-  const store = createOrderStore(connectors().orderConnectors)
-  return store()
+	const store = createOrderStore(connectors().orderConnectors)
+	return store()
 }
 
 const useWishListStore = () => {
-  const store = createWishListStore(connectors().wishListConnectors)
-  return store()
+	const store = createWishListStore(connectors().wishListConnectors)
+	return store()
 }
 
 const useOfferStore = () => {
-  const store = createOfferStore(connectors().offersConnectors)
-  return store()
+	const store = createOfferStore(connectors().offersConnectors)
+	return store()
 }
 
 const useSettingStore = () => {
-  const store = createSettingStore(connectors().settingsConnectors)
-  return store()
+	const store = createSettingStore(connectors().settingsConnectors)
+	return store()
+}
+const useOurClientsStore = () => {
+	const store = createOurClientsStore(connectors().ourClientsConnectors)
+	return store()
 }
 
-export { useProductStore, useCategoryStore, useAddressStore, useAuthStore, useBlogStore, useCartStore, useOrderStore, useWishListStore, useOfferStore, useSettingStore }
+export {
+	useProductStore,
+	useCategoryStore,
+	useAddressStore,
+	useAuthStore,
+	useBlogStore,
+	useCartStore,
+	useOrderStore,
+	useWishListStore,
+	useOfferStore,
+	useSettingStore,
+	useOurClientsStore
+}
