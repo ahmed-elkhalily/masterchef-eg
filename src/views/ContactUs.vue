@@ -7,7 +7,14 @@
 						<v-icon class="contact-icon" size="24">mdi-email-outline</v-icon>
 						<div>{{ $t('contactus.email') }}</div>
 					</v-card-title>
-					<v-card-text class="contact-card-text">hello@example.com</v-card-text>
+					<v-card-text class="contact-card-text">
+						<v-btn
+							variant="text"
+							:href="'mailto:' + $t('contactus.data.email')"
+						>
+							{{ $t('contactus.data.email') }}
+						</v-btn>
+					</v-card-text>
 					<v-card-title class="contact-card-title">
 						<v-icon class="contact-icon" size="24"
 							>mdi-map-marker-outline</v-icon
@@ -22,7 +29,11 @@
 						<div dir="ltr">{{ $t('contactus.phone') }}</div>
 					</v-card-title>
 					<v-card-text class="contact-card-text">
-						<div>{{ $t('contactus.data.phone') }}</div>
+						<div>
+							<v-btn variant="text" :href="'tel:' + $t('contactus.data.phone')">
+								{{ $t('contactus.data.phone') }}
+							</v-btn>
+						</div>
 					</v-card-text>
 					<v-card-title class="contact-card-title">
 						<v-icon class="contact-icon" size="24">mdi-fax-outline</v-icon>
@@ -33,11 +44,12 @@
 					</v-card-text>
 					<v-card-title class="contact-card-title">
 						<v-icon class="contact-icon" size="24">mdi-whatsapp</v-icon>
-
 						<div style="direction: ltr">{{ $t('contactus.watsapp') }}</div>
 					</v-card-title>
 					<v-card-text class="contact-card-text">
-						<div>{{ $t('contactus.data.phone') }}</div>
+						<v-btn variant="text" href="https://wa.me/201018964915">
+							{{ $t('contactus.data.phone') }}
+						</v-btn>
 					</v-card-text>
 				</v-card>
 			</v-col>
