@@ -3,6 +3,7 @@ import NavBar from './components/NavBar.vue'
 import ErrorMessage from './components/ErrorMessage.vue'
 import Footer from './components/AppFooter.vue'
 import Cart from './components/AppCart.vue'
+import SideMedias from './components/SideMedias.vue'
 import { useI18n } from 'vue-i18n'
 import './styles/index.css'
 
@@ -24,12 +25,6 @@ if (lang) {
 <template>
 	<v-locale-provider :rtl="locale === 'ar' ? true : false">
 		<v-app>
-			<v-system-bar window>
-				<v-spacer />
-				<h2 v-if="locale === 'ar'">نسخة تجريبية</h2>
-				<h2 v-else>Trail Version</h2>
-				<v-spacer />
-			</v-system-bar>
 			<Suspense>
 				<NavBar />
 			</Suspense>
@@ -45,6 +40,7 @@ if (lang) {
 			<Suspense>
 				<Footer></Footer>
 			</Suspense>
+			<SideMedias />
 		</v-app>
 	</v-locale-provider>
 </template>

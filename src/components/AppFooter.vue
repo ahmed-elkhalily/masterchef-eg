@@ -9,6 +9,29 @@ const categoryStore = useCategoryStore()
 const data = ref(await settingStore.getFooter())
 await categoryStore.load()
 const { locale } = useI18n({ useScope: 'global' })
+
+const partners = ref([
+	{
+		link: 'link',
+		name: 'Carrefour',
+		logo: 'https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Logo_Carrefour.svg/1200px-Logo_Carrefour.svg.png'
+	},
+	{
+		link: 'link',
+		name: 'Fathalla',
+		logo: 'https://upload.wikimedia.org/wikipedia/ar/8/83/Fath_allah_market.png'
+	},
+	{
+		link: 'link',
+		name: 'Saudi',
+		logo: 'data:image/jpeg;base64,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'
+	},
+	{
+		link: 'link',
+		name: 'Carrefour',
+		logo: 'https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Logo_Carrefour.svg/1200px-Logo_Carrefour.svg.png'
+	}
+])
 </script>
 
 <template>
@@ -18,7 +41,31 @@ const { locale } = useI18n({ useScope: 'global' })
 	>
 		<v-container>
 			<div class="mb-3">
-				<v-img class="pulse" :src="data?.footer_logo" height="80" width="200" />
+				<div class="footer__logo mb-2">
+					<div class="footer__logo-qrcode">
+						<div>
+							<v-img
+								class="logo"
+								:src="data?.footer_logo"
+								height="80"
+								width="200"
+							/>
+						</div>
+						<div
+							style="
+								padding: 0.125rem;
+								background: white;
+								border-radius: 0.5rem;
+							"
+						>
+							<v-img
+								width="100"
+								height="100"
+								src="./QR_code_for_mobile_English_Wikipedia.svg.png"
+							></v-img>
+						</div>
+					</div>
+				</div>
 				<v-spacer />
 				<v-divider />
 			</div>
@@ -111,26 +158,63 @@ const { locale } = useI18n({ useScope: 'global' })
 					</v-card-text>
 				</v-col>
 			</v-row>
-			<div class="my-4">
-				<v-btn
-					class="ma-2"
-					variant="text"
-					icon="mdi-facebook"
-					color="info"
-					style="background-color: white"
-					density="comfortable"
-				></v-btn>
-				<v-btn
-					density="comfortable"
-					class="ma-2"
-					variant="text"
-					icon="mdi-instagram"
-					style="background-color: white"
-					color="red"
-				></v-btn>
-			</div>
 
+			<v-container class="mt-5">
+				<v-card-text class="mb-2" style="color: #42c0f9; font-size: 1.5rem">
+					<p class="text-subtitle-1 font-weight-bold">
+						{{ $t('appFooter.ourClients') }}
+					</p>
+				</v-card-text>
+				<v-row>
+					<v-col
+						v-for="partner in partners"
+						:key="partner.name"
+						cols="6"
+						sm="4"
+						md="3"
+						class="our-clients"
+					>
+						<div class="our-clients__item">
+							<router-link to="/our-clients">
+								<v-img
+									class="our-clients__img"
+									:src="partner.logo"
+									height="100px"
+								/>
+							</router-link>
+						</div>
+					</v-col>
+				</v-row>
+			</v-container>
 			<strong>@{{ data.copyright_text }}</strong>
 		</v-container>
 	</v-footer>
 </template>
+
+<style lang="scss">
+.our-clients {
+	&__item {
+		text-align: center;
+		border-radius: 3.5px;
+		padding: 0.5rem;
+		background: white;
+	}
+	&__title {
+		margin-top: 1rem;
+		font-size: 1.23rem;
+		color: #313131;
+		font-weight: 600;
+	}
+}
+.footer__logo-qrcode {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+	.footer__logo-qrcode {
+		flex-direction: column;
+	}
+}
+</style>

@@ -49,15 +49,6 @@ const props = defineProps({
 					</span>
 				</v-card-subtitle>
 			</v-card-title>
-			<!-- <v-btn
-				class="ml-0 pl-0"
-				color="blue"
-				variant="text"
-				:to="`/offer/${offer.slug}`"
-			>
-				{{ $t('offerList.exploreBtn') }}
-			</v-btn>
-		 -->
 		</v-card>
 	</v-container>
 </template>

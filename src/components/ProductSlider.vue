@@ -4,7 +4,6 @@ import { useProductStore, useWishListStore, useCartStore } from '../stores'
 import alerts from '../alerts/alert.js'
 // working with swipper
 import { Pagination } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 

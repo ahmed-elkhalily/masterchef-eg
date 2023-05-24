@@ -8,6 +8,8 @@ import CheckOut from '../components/CheckOut.vue'
 import AuthView from '../views/AuthView.vue'
 import OfferView from '../views/OfferView.vue'
 import PolicyView from '../views/PolicyView.vue'
+import ContactUs from '../views/ContactUs.vue'
+import OurClients from '../views/OurClients.vue'
 
 const router = createRouter({
 	history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -87,13 +89,23 @@ const router = createRouter({
 			path: '/offer/:offerId',
 			name: 'offerProducts',
 			component: OfferView
+		},
+		{
+			path: '/contact-us',
+			name: 'contact-us',
+			component: ContactUs
+		},
+		{
+			path: '/our-clients',
+			name: 'our-clients',
+			component: OurClients
 		}
 	]
 })
 
 router.beforeEach((to, from, next) => {
 	if (to.path === '/user' || to.path === '/checkOut') {
-		if (!!!localStorage.getItem('MasterchefToken')) {
+		if (!localStorage.getItem('MasterchefToken')) {
 			router.push('/login')
 		}
 	}

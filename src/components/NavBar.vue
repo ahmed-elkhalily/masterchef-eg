@@ -94,6 +94,20 @@ const changeLanguage = (lang) => {
 			>
 				{{ $t('navbar.categoryBtn') }}
 			</v-btn>
+			<v-btn
+				variant="text"
+				class="h-100 hidden-sm-and-down rounded-0"
+				to="/contact-us"
+			>
+				{{ $t('navbar.contactUs') }}
+			</v-btn>
+			<v-btn
+				variant="text"
+				class="h-100 hidden-sm-and-down rounded-0"
+				to="/our-clients"
+			>
+				{{ $t('navbar.ourClients') }}
+			</v-btn>
 
 			<v-btn
 				variant="text"

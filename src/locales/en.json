@@ -122,7 +122,9 @@
 		"categoryBtn": "Categories",
 		"blogBtn": "Blogs",
 		"offersBtn": "Offers",
-		"wishlistBtn": "Wishlist"
+		"wishlistBtn": "Wishlist",
+		"contactUs": "Contact Us",
+		"ourClients": "Our Parteners"
 	},
 	"offerList": {
 		"exploreBtn": "Explore"
@@ -199,8 +201,24 @@
 		"categoryTitle": "Categories",
 		"myAccountTitle": "My Account",
 		"policyTitle": "Website Policy",
-		"contactUsTitle": "Contact Us"
+		"contactUsTitle": "Contact Us",
+		"ourClients": "Our Parteners"
 	},
 	"currencyLabel": "EGP",
-	"bestSellings": "Bestsellings"
+	"bestSellings": "Bestsellings",
+	"contactus": {
+		"email": "Email",
+		"address": "Address",
+		"phone": "Phone",
+		"fax": "Fax",
+		"watsapp": "WhatsApp",
+		"location": "Location",
+		"data": {
+			"email": " masterchefeg@yahoo.com",
+			"address": " 11 شارع الصفا متفرع من محور طه حسين النزهه الجديده -مصر الجديده",
+			"phone": "+20-26215756",
+			"fax": "+20-26215755",
+			"watsapp": "+2012-345-678"
+		}
+	}
 }
