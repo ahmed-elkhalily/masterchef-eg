@@ -11,7 +11,7 @@ import settings from './settings'
 import ourClients from './our-clients'
 import mainFeatured from './main-featured'
 
-export default function () {
+export default function() {
 	const productConnectors = product()
 	const categoryConnectors = category()
 	const wishListConnectors = wishList()

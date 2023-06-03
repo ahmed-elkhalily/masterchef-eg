@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
 	<v-container>
 		<div class="main-container">
@@ -18,7 +22,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider1(a).jpg"
 								></v-img>
 							</swiper-slide>
 							<swiper-slide>
@@ -26,15 +30,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
-								></v-img>
-							</swiper-slide>
-							<swiper-slide>
-								<v-img
-									cover
-									style="width: 100%; height: 100%"
-									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider1(b).jpg"
 								></v-img>
 							</swiper-slide>
 						</swiper-container>
@@ -54,7 +50,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider1(c).jpg"
 								></v-img>
 							</swiper-slide>
 							<swiper-slide>
@@ -62,15 +58,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
-								></v-img>
-							</swiper-slide>
-							<swiper-slide>
-								<v-img
-									cover
-									style="width: 100%; height: 100%"
-									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider1(d).jpg"
 								></v-img>
 							</swiper-slide>
 						</swiper-container>
@@ -91,7 +79,7 @@
 								cover
 								style="width: 100%; height: 100%"
 								class="img"
-								src="./welcome2.jpg"
+									src="./to-delete/slider-big-1.jpg"
 							></v-img>
 						</swiper-slide>
 						<swiper-slide>
@@ -99,15 +87,7 @@
 								cover
 								style="width: 100%; height: 100%"
 								class="img"
-								src="./welcome2.jpg"
-							></v-img>
-						</swiper-slide>
-						<swiper-slide>
-							<v-img
-								cover
-								style="width: 100%; height: 100%"
-								class="img"
-								src="./welcome2.jpg"
+									src="./to-delete/slider-big-2.jpg"
 							></v-img>
 						</swiper-slide>
 					</swiper-container>
@@ -128,7 +108,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider2(a).jpg"
 								></v-img>
 							</swiper-slide>
 							<swiper-slide>
@@ -136,15 +116,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
-								></v-img>
-							</swiper-slide>
-							<swiper-slide>
-								<v-img
-									cover
-									style="width: 100%; height: 100%"
-									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider2(b).jpg"
 								></v-img>
 							</swiper-slide>
 						</swiper-container>
@@ -164,7 +136,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider2(c).jpg"
 								></v-img>
 							</swiper-slide>
 							<swiper-slide>
@@ -172,15 +144,7 @@
 									cover
 									style="width: 100%; height: 100%"
 									class="img"
-									src="./welcome2.jpg"
-								></v-img>
-							</swiper-slide>
-							<swiper-slide>
-								<v-img
-									cover
-									style="width: 100%; height: 100%"
-									class="img"
-									src="./welcome2.jpg"
+									src="./to-delete/smallslider2(d).jpg"
 								></v-img>
 							</swiper-slide>
 						</swiper-container>

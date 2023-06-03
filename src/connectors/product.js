@@ -1,12 +1,12 @@
 import { callServer, url } from './callServer'
 
-export default function (data) {
-	const list = async function (page) {
+export default function(data) {
+	const list = async function(page) {
 		const res = await callServer(url + 'api/v1/product/all-products' + page)
 		return { data: res.data, totalPage: res.meta.last_page }
 	}
 
-	const getOne = async function (data) {
+	const getOne = async function(data) {
 		const requestOptions = {
 			method: 'get',
 			headers: { 'Content-Type': 'application/json' }
@@ -18,18 +18,18 @@ export default function (data) {
 		return res.data
 	}
 
-	const listRelatedProducts = async function (data) {
+	const listRelatedProducts = async function(data) {
 		const res = await callServer(url + 'api/v1/product/related/' + data.id)
 		return res.data
 	}
-	const listCategoryProducts = async function (data) {
+	const listCategoryProducts = async function(data) {
 		const res = await callServer(
 			url + 'api/v1/product/get_products_by_category/' + data.id
 		)
 		return res.data
 	}
 
-	const searchProducts = async (data) => {
+	const searchProducts = async(data) => {
 		const requestOptions = {
 			method: 'get',
 			headers: { 'Content-Type': 'application/json' }
@@ -60,7 +60,7 @@ export default function (data) {
 		return res.products.data
 	}
 
-	const productReviews = async (data) => {
+	const productReviews = async(data) => {
 		const requestOptions = {
 			method: 'get',
 			headers: { 'Content-Type': 'application/json' }
@@ -72,7 +72,7 @@ export default function (data) {
 		return res.data
 	}
 
-	const submitReview = async (data) => {
+	const submitReview = async(data) => {
 		const requestOptions = {
 			method: 'post',
 			headers: {

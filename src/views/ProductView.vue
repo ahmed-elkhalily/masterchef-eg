@@ -13,7 +13,7 @@ const productStore = useProductStore()
 const data = ref()
 const details = ref()
 const name = ref()
-const totalPage = ref(0)
+const totalPage = ref(1)
 
 async function loadData() {
 	totalPage.value = 0
@@ -37,7 +37,7 @@ async function changePageHandle(params) {
 	data.value = productStore.items
 }
 
-watchEffect(async () => {
+watchEffect(async() => {
 	loadData()
 })
 </script>

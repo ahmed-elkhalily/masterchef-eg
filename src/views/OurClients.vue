@@ -1,6 +1,25 @@
+<script setup>
+import { watchEffect, ref } from 'vue'
+import { useOurClientsStore } from '../stores/index.js'
+import AppLoadingVue from '../components/AppLoading.vue'
+
+const clientsStore = useOurClientsStore()
+
+const partners = ref()
+
+async function loadData() {
+	partners.value = await clientsStore.load()
+}
+
+watchEffect(async() => {
+	loadData()
+})
+
+</script>
+
 <template>
 	<v-container class="mt-5">
-		<v-row>
+		<v-row >
 			<v-col
 				v-for="partner in partners"
 				:key="partner.name"
@@ -10,10 +29,11 @@
 				class="our-clients"
 			>
 				<div class="our-clients__item">
-					<a :href="partner.url">
+					<a :href="partner.link">
 						<v-img
 							class="our-clients__img"
-							:src="partner.logo"
+							:src="partner.avatar"
+							:alt="partner.name"
 							height="100px"
 						/>
 					</a>

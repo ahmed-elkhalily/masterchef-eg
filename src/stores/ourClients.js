@@ -9,9 +9,9 @@ export default (connectors) => {
 		actions: {
 			async load() {
 				try {
-					const res = await connectors.clients()
+					const res = await connectors.clientsList()
 					this.ourClients = res.data
-					return res
+					return res.data
 				} catch (error) {
 					useSystemMessagesStore().addError(error)
 				}
