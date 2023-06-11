@@ -13,7 +13,6 @@ async () => {
   const config = await import('/config.js')
 }
 */
-
 createApp(App)
 	.use(i18n)
 	.use(pinia)

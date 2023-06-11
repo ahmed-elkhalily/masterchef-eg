@@ -41,7 +41,7 @@ async function changePageHandle(params) {
 	data.value = productStore.items
 }
 
-watchEffect(async () => {
+watchEffect(async() => {
 	loadData()
 })
 </script>

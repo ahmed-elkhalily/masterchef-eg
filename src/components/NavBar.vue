@@ -46,28 +46,48 @@ const changeLanguage = (lang) => {
 
 				<v-list>
 					<v-list-item to="/user">
-						<v-icon>mdi-account-outline</v-icon
-						><span>{{ $t('navbar.dashboardBtn') }}</span>
+						<v-icon>mdi-account-outline</v-icon>
+						{{ " " }}
+						<span>{{ $t('navbar.dashboardBtn') }}</span>
 					</v-list-item>
 
 					<v-list-item to="/product">
-						<v-icon>mdi-shopping-outline</v-icon
-						><span>{{ $t('navbar.productBtn') }}</span>
+						<v-icon>mdi-shopping-outline</v-icon>
+						{{ " " }}
+						<span>{{ $t('navbar.productBtn') }}</span>
 					</v-list-item>
 					<v-list-item to="/category">
-						<v-icon>mdi-view-grid-outline</v-icon
-						><span> {{ $t('navbar.categoryBtn') }}</span>
+						<v-icon>mdi-view-grid-outline</v-icon>
+						{{" "}}
+						<span> {{ $t('navbar.categoryBtn') }}</span>
 					</v-list-item>
 
 					<v-list-item to="/offer">
 						<v-icon>mdi-percent</v-icon
-						><span> {{ $t('navbar.offersBtn') }}</span>
+						>
+							{{" "}}
+						<span> {{ $t('navbar.offersBtn') }}</span>
+					</v-list-item>
+					<v-list-item to="/contact-us">
+							<v-icon>mdi-contacts</v-icon>
+							{{" "}}
+							<span>
+								{{ $t('navbar.contactUs') }}
+							</span>
+					</v-list-item>
+					<v-list-item to="/our-clients">
+							<v-icon>mdi-account-group</v-icon>
+							{{" "}}
+							<span>
+								{{ $t('navbar.ourClients') }}
+							</span>
 					</v-list-item>
 					<v-list-item
 						@click="router.push({ path: '/user', hash: '#wishlist' })"
 					>
-						<v-icon>mdi-heart-outline</v-icon
-						><span> {{ $t('navbar.wishlistBtn') }}</span>
+						<v-icon>mdi-heart-outline</v-icon>
+						{{ " " }}
+						<span> {{ $t('navbar.wishlistBtn') }}</span>
 					</v-list-item>
 				</v-list>
 			</v-menu>

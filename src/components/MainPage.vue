@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
 	<v-container>
 		<div class="main-container">
@@ -74,22 +70,29 @@
 							delay: 1000
 						}"
 					>
+
 						<swiper-slide style="position: relative">
 							<v-img
 								cover
 								style="width: 100%; height: 100%"
-								class="img"
+								class="img hidden-xs-and-down"
+									src="./to-delete/slider-big-1.jpg"
+							></v-img>
+							<v-img
+							contain
+								style="width: 100%; height: 100%"
+								class="img hidden-sm-and-up"
 									src="./to-delete/slider-big-1.jpg"
 							></v-img>
 						</swiper-slide>
-						<swiper-slide>
+						<!-- <swiper-slide>
 							<v-img
 								cover
 								style="width: 100%; height: 100%"
 								class="img"
 									src="./to-delete/slider-big-2.jpg"
 							></v-img>
-						</swiper-slide>
+						</swiper-slide> -->
 					</swiper-container>
 				</div>
 				<div class="main-carusel__sec">
@@ -185,5 +188,40 @@
 	&__item {
 		height: 46%;
 	}
+}
+@media (min-width: 320px) and (max-width: 599px) {
+.main-carusel {
+	height: 60vh;
+	min-height: 450px;
+	margin-block: 2rem;
+	display: flex;
+	&__main {
+		width: 100%;
+		.v-img__img.v-img__img--cover{
+			object-fit: contain !important;
+		}
+	}
+	// &__main,
+	// &__sec {
+	// 	margin-inline-end: 2%;
+	// 	&:last-of-type {
+	// 		margin-inline-end: 0;
+	// 	}
+	// }
+
+	&__sec {
+		display: none;
+	}
+
+	// &__sec {
+	// 	height: 100%;
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	justify-content: space-between;
+	// }
+	// &__item {
+	// 	height: 46%;
+	// }
+}
 }
 </style>

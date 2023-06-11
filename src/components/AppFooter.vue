@@ -142,15 +142,23 @@ watchEffect(async() => {
 					</v-card-text>
 					<v-card-text class="headline px-0">
 						<v-icon icon="mdi-phone-outline mr-2"></v-icon>
-						{{ data.contact_info.contact_phone }}
+						<a v-bind:href="'tel:' + data.contact_info.contact_phone" style="color: inherit; text-decoration: none;" >
+								{{ data.contact_info.contact_phone }}
+						</a>
+					</v-card-text>
+					<v-card-text class="headline px-0">
+						<v-icon icon="mdi-fax mr-2"></v-icon>
+						{{ data.contact_info.contact_fax }}
 					</v-card-text>
 				</v-col>
 			</v-row>
 
 			<v-container class="mt-5">
 				<v-card-text class="mb-2" style="color: #42c0f9; font-size: 1.5rem">
-					<p class="text-subtitle-1 font-weight-bold">
-						{{ $t('appFooter.ourClients') }}
+					<p class="text-subtitle-1 font-weight-bold ">
+						<router-link class="" to="/our-clients" style="color: #42c0f9; font-size: 1.125rem; text-decoration: none;">
+							{{ $t('appFooter.ourClients') }}
+						</router-link>
 					</p>
 				</v-card-text>
 				<v-row v-if="partners">
@@ -162,7 +170,7 @@ watchEffect(async() => {
 						md="3"
 						class="our-clients"
 					>
-						 <div class="our-clients__item">
+						<div class="our-clients__item">
 							<router-link to="/our-clients">
 								<v-img
 									class="our-clients__img"
